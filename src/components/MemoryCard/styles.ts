@@ -13,7 +13,7 @@ type Memory = {
 export const Container = styled.View<Memory>`
     width: 70px;
     height: 70px;
-    // border-radius: 100%;
+    border-radius: 100px;
 	align-items: center;
 	justify-content: center;
 
@@ -28,7 +28,9 @@ export const Container = styled.View<Memory>`
 `
 
 export const Avatar = styled.Image<AvatarProps>`
-    //display: none;
+    width: 70px;
+    height: 70px;
+    // display: none;
     border-radius: 50px;
     /* ${({ visible, selected }) => (visible || selected) && css`
 		display: block;

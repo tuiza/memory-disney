@@ -1082,6 +1082,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
+"@expo-google-fonts/princess-sofia@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/princess-sofia/-/princess-sofia-0.2.2.tgz#40e6c8d2e37af5bbdfda28aab020c6c218b7b7dc"
+  integrity sha512-promTw++3Ct+AF+kWI7Ocbm52KmJ6WUyfX/1u5gNzGGhmFi+iTqbpxx7xqE1r1T8grYwHGoWR/Gb4xOTnl+v/w==
+
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"

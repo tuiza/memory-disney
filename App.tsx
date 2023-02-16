@@ -3,6 +3,7 @@ import { SafeAreaView } from 'react-native';
 import Button from './src/components/Button';
 import Label from './src/components/Label';
 import MemoryCard from './src/components/MemoryCard';
+import Colors from './src/utils/colors';
 
 export default function App() {
   return (
@@ -14,14 +15,14 @@ export default function App() {
       }}
     >
       <MemoryCard
-        princess={"BRANCA"}
+        princess="adormecida"
         selected={false}
         visible={true} />
-      <Button backgroundColor='red'>
-        <Label text='Memória' color='pink'/>
+      <Button backgroundColor={Colors.pink}>
+        <Label text='Reiniciar' color={Colors.purple}/>
       </Button>
-      <Button backgroundColor='red'>
-        <Label text='Memória' color='pink'/>
+      <Button backgroundColor={Colors.purple}>
+        <Label text='Novo' color={Colors.pink}/>
       </Button>
     </SafeAreaView>
     

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Button from './src/components/Button';
 import Label from './src/components/Label';
@@ -30,10 +29,10 @@ export default function App() {
       <Button backgroundColor={Colors.purple}>
         <Label color={Colors.pink}>Novo</Label>
       </Button>
-      <Button backgroundColor={Colors.purple} onPress={()=>setOpen(!open)}>
+      <Button backgroundColor={Colors.purple} onPress={()=>setOpen(true)}>
         <Label color={Colors.pink}>Modal</Label>
       </Button>
-      <Modal open={open}>
+      <Modal open={open} onClosed={()=> setOpen(false)}>
         <MemoryCard
         princess="adormecida"
         selected={false}

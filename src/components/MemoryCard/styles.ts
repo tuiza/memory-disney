@@ -17,7 +17,6 @@ export const Container = styled.View<Memory>`
 	align-items: center;
 	justify-content: center;
 
-
     ${({ selected }) => selected && css`
         background-color: #F18B8B;
     `}
@@ -27,13 +26,9 @@ export const Container = styled.View<Memory>`
     `}
 `
 
-export const Avatar = styled.Image<AvatarProps>`
+export const Avatar = styled.Image`
     width: 100px;
     height: 100px;
-    // display: none;
     border-radius: 50px;
-    /* ${({ visible, selected }) => (visible || selected) && css`
-		display: block;
-	`} */
 
 `

@@ -44,10 +44,9 @@ type MemoryCardProps = {
 export default function ({princess, visible, selected}: MemoryCardProps) {    
     return (
         <S.Container selected={selected} visible={visible}>
-            <S.Avatar
-                source={PRINCESS[princess]}
-                selected={selected}
-                visible={visible} />
+            {(selected || visible) && 
+            (<S.Avatar
+                source={PRINCESS[princess]} />) }
         </S.Container>
     )
 }

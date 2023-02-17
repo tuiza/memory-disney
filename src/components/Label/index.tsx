@@ -3,10 +3,12 @@ import * as S from './styles';
 import { useFonts, PrincessSofia_400Regular } from '@expo-google-fonts/princess-sofia';
 
 type LabelProps = {
-  text: string
+  children: string
   color: string
+  fontSize?: number
 }
-export default function Label({ text, color }: LabelProps) {
+
+export default function Label({ children, color, fontSize = 22 }: LabelProps) {
   let [fontsLoaded] = useFonts({
 		PrincessSofia_400Regular,
 	});
@@ -18,9 +20,10 @@ export default function Label({ text, color }: LabelProps) {
   return (
     <S.Label color={color}
       style={{
-					fontFamily: 'PrincessSofia_400Regular'
+        fontFamily: 'PrincessSofia_400Regular',
+        fontSize
 				}}>
-      {text}
+      {children}
     </S.Label>
   );
 }

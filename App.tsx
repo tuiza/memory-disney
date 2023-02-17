@@ -1,30 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Button from './src/components/Button';
 import Label from './src/components/Label';
 import MemoryCard from './src/components/MemoryCard';
+import { Modal } from './src/components/Modal';
 import Colors from './src/utils/colors';
 
 export default function App() {
+  const [open, setOpen] = useState(false);
   return (
-    <SafeAreaView
+    <GestureHandlerRootView
       style={{
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
       }}
     >
+      <Label color={Colors.purple} fontSize={50}>
+      Memória
+      </Label>
       <MemoryCard
         princess="adormecida"
         selected={false}
         visible={true} />
       <Button backgroundColor={Colors.pink}>
-        <Label text='Reiniciar' color={Colors.purple}/>
+        <Label color={Colors.purple}>Reiniciar</Label>
       </Button>
       <Button backgroundColor={Colors.purple}>
-        <Label text='Novo' color={Colors.pink}/>
+        <Label color={Colors.pink}>Novo</Label>
       </Button>
-    </SafeAreaView>
+      <Button backgroundColor={Colors.purple} onPress={()=>setOpen(!open)}>
+        <Label color={Colors.pink}>Modal</Label>
+      </Button>
+      <Modal open={open}>
+        <MemoryCard
+        princess="adormecida"
+        selected={false}
+        visible={true} />
+      </Modal>
+    </GestureHandlerRootView>
     
   );
 }

@@ -1,14 +1,16 @@
 import React from 'react';
 import * as S from './styles';
 import { useFonts, PrincessSofia_400Regular } from '@expo-google-fonts/princess-sofia';
+import { StyleProp, TextProps } from 'react-native';
 
 type LabelProps = {
   children: string
   color: string
   fontSize?: number
-}
+  styles?: object
+} & TextProps
 
-export default function Label({ children, color, fontSize = 22 }: LabelProps) {
+export default function Label({ children, color, fontSize = 22, styles}: LabelProps) {
   let [fontsLoaded] = useFonts({
 		PrincessSofia_400Regular,
 	});
@@ -21,8 +23,10 @@ export default function Label({ children, color, fontSize = 22 }: LabelProps) {
     <S.Label color={color}
       style={{
         fontFamily: 'PrincessSofia_400Regular',
-        fontSize
-				}}>
+        fontSize,
+        ...styles
+      }}
+      >
       {children}
     </S.Label>
   );

@@ -10,12 +10,13 @@ type Memory = {
     selected: boolean
 }
 
-export const Container = styled.View<Memory>`
+export const Container = styled.TouchableOpacity<Memory>`
     width: 100px;
     height: 100px;
     border-radius: 100px;
 	align-items: center;
 	justify-content: center;
+    margin: 10px 0;
 
     ${({ selected }) => selected && css`
         background-color: #F18B8B;

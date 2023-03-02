@@ -4,7 +4,7 @@ import { useFonts, PrincessSofia_400Regular } from '@expo-google-fonts/princess-
 import { StyleProp, TextProps } from 'react-native';
 
 type LabelProps = {
-  children: string
+  children: React.ReactNode
   color: string
   fontSize?: number
   styles?: object

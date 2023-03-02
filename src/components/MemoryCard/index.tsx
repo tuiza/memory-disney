@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ImageSourcePropType } from 'react-native'
+import { Image, ImageSourcePropType, TouchableOpacityProps } from 'react-native'
 import bela from '../../imgs/bela.png'
 import adormecida from '../../imgs/adormecida.png'
 import sin from '../../imgs/sin.png'
@@ -11,7 +11,7 @@ import cinderela from '../../imgs/cinderela.png'
 import tina from '../../imgs/tina.png'
 import * as S from './styles'
 
-enum PRINCESS_ENUM { 
+export enum PRINCESS_ENUM {
     bela = 'bela',
     adormecida = 'adormecida',
     sin = 'sin',
@@ -20,7 +20,7 @@ enum PRINCESS_ENUM {
     merida = 'merida',
     branca = 'branca',
     cinderela = 'cinderela',
-    tina = 'tina'    
+    tina = 'tina'
 }
 
 const PRINCESS: { [k: string]: ImageSourcePropType } = {
@@ -31,22 +31,23 @@ const PRINCESS: { [k: string]: ImageSourcePropType } = {
     ariel,
     merida,
     branca,
-    cinderela, 
+    cinderela,
     tina
 }
-    
+
 type MemoryCardProps = {
     princess: keyof typeof PRINCESS_ENUM
     visible: boolean,
     selected: boolean,
-}
+    
+} & TouchableOpacityProps
 
-export default function ({princess, visible, selected}: MemoryCardProps) {    
+export default function ({ princess, visible, selected, ...rest }: MemoryCardProps) {
     return (
-        <S.Container selected={selected} visible={visible}>
-            {(selected || visible) && 
-            (<S.Avatar
-                source={PRINCESS[princess]} />) }
+        <S.Container selected={selected} visible={visible} {...rest}>
+            {(selected || visible) &&
+                (<S.Avatar
+                    source={PRINCESS[princess]} />)}
         </S.Container>
     )
 }

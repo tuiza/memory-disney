@@ -17,6 +17,7 @@ export const Container = styled.TouchableOpacity<Memory>`
 	align-items: center;
 	justify-content: center;
     margin: 10px 0;
+    background-color: #E4CBCB;
 
     ${({ selected }) => selected && css`
         background-color: #F18B8B;

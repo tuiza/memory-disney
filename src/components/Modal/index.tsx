@@ -11,8 +11,10 @@ export const Modal = ({ open, children, ...rest}: ModaLProps) => {
 
   useEffect(() => {
     if (open) {
-   modalizeRef.current?.open()
-  } 
+      modalizeRef.current?.open()
+    } else {
+      modalizeRef.current?.close()
+    }
   }, [open])
 
   return (

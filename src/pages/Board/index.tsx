@@ -86,11 +86,11 @@ export default function Board() {
             setImagesCards(newImagesCards)
 
             const visibleCards = newImagesCards.filter((item) => item.visible)
-            if (visibleCards.length === (size * 2)) {
+            if (visibleCards.length === (size * 2)) { // todo mundo visivel
                 setVictories(victories + 1)
                 setVictoryModal(true)
-                setTimerState('0:00')
-                setMoves(0)
+                setTimerState(timer)
+                setMoves(moves)
                 clearInterval(timerInterval);
                 setTimerInterval(null as any);
             }
@@ -146,19 +146,26 @@ export default function Board() {
             setTimerInterval(interval)
         }
     }
-
-    useEffect(() => {
+    const onHandleRestart = () => {
         setImagesCards(imagesBySize[size]
             .concat(imagesBySize[size])
             .sort(() => Math.random() - 0.5)
             .map((image) => ({ princess: image, selected: false, visible: false })))
+        setMoves(0)
+        setTimerState('00:00')
+        setTimerInterval(null as any)
+        clearInterval(timerInterval);
+    }
+
+    useEffect(() => {
+        onHandleRestart()
     }, [size, defeats, victories])
 
     return (
         <S.Container>
             <Label color={Colors.purple} fontSize={50}>Memória</Label>
             <S.ButtonsContainer>
-                <Button backgroundColor={Colors.pink} onPress={() => onHandleVictoryModal()}>
+                <Button backgroundColor={Colors.pink} onPress={() => onHandleRestart()}>
                     <Label color={Colors.purple}>Reiniciar</Label>
                 </Button>
                 <Button backgroundColor={Colors.purple} onPress={() => onHandleNewModal()}>
@@ -173,6 +180,7 @@ export default function Board() {
             } />
 
             <S.CardContainer
+                
                 size={size}
                 centerContent={true}
                 contentContainerStyle={{

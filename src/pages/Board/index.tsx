@@ -200,7 +200,7 @@ export default function Board() {
                             princess={item.princess}
                             selected={item.selected}
                             visible={item.visible}
-                            onPress={() => handleCardPress(index)}
+                            onTest={() => handleCardPress(index)}
                         />
                     ))
                 }

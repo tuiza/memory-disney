@@ -86,7 +86,6 @@ export default function Board() {
                 setVictories(victories + 1)
                 setVictoryModal(true)
                 setTimerState(timer)
-                // OS MOVIMENTOS DEVEM SER CO
                 setMoves(moves)
                 clearInterval(timerInterval);
                 setTimerInterval(null as any);
@@ -203,7 +202,7 @@ export default function Board() {
             </S.CardContainer>
 
             <S.FooterContainer>
-                <Label color={Colors.purple} >Tempo: {timer}</Label>
+                <Label color={Colors.purple}>Tempo: {timer}</Label>
                 <Label color={Colors.purple}>Tentativas: {moves}</Label>
             </S.FooterContainer>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Label from '../../components/Label'
 
@@ -63,12 +63,7 @@ export default function Board() {
         clearInterval(timerInterval);
     }
 
-    const onHandleVictoryModal = () => {
-        setVictoryModal(true)
-        setNewModal(false)
-    }
-
-    const verifyEqualCards = () => {
+    const verifyEqualCards = async() => {
         const newImagesCards = [...imagesCards]
         const selectedCards = newImagesCards.filter((item) => item.selected)
 
@@ -83,6 +78,7 @@ export default function Board() {
                 card1.selected = false
                 card2.selected = false
             }
+            setMoves(moves + 1)
             setImagesCards(newImagesCards)
 
             const visibleCards = newImagesCards.filter((item) => item.visible)
@@ -90,6 +86,7 @@ export default function Board() {
                 setVictories(victories + 1)
                 setVictoryModal(true)
                 setTimerState(timer)
+                // OS MOVIMENTOS DEVEM SER CO
                 setMoves(moves)
                 clearInterval(timerInterval);
                 setTimerInterval(null as any);
@@ -99,7 +96,6 @@ export default function Board() {
 
     const handleCardPress = async (indexCard: number) => {
         updateTimer()
-        setMoves(moves + 1)
         const newImagesCards = [...imagesCards]
 
         const selectedItem = newImagesCards[indexCard]
@@ -118,7 +114,7 @@ export default function Board() {
         const selectedCards = imagesCards.filter((item) => item.selected)
         if (selectedCards.length === 2) {
             await new Promise(res => {
-                setTimeout(res, 1000)
+                setTimeout(res, 300)
             });
             verifyEqualCards()
         }
@@ -200,7 +196,7 @@ export default function Board() {
                             princess={item.princess}
                             selected={item.selected}
                             visible={item.visible}
-                            onTest={() => handleCardPress(index)}
+                            onFlip={() => handleCardPress(index)}
                         />
                     ))
                 }

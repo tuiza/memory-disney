@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ImageSourcePropType, PressableProps, Pressable } from 'react-native'
+import { ImageSourcePropType, PressableProps } from 'react-native'
 import bela from '../../imgs/bela.png'
 import adormecida from '../../imgs/adormecida.png'
 import sin from '../../imgs/sin.png'
@@ -45,50 +45,51 @@ type MemoryCardProps = {
     princess: keyof typeof PRINCESS_ENUM
     visible: boolean,
     selected: boolean,
-    onTest: () => void
+    onFlip: () => void
 } & PressableProps
 
-export default function ({ princess, visible, selected, onTest, ...rest }: MemoryCardProps) {
+export default function ({ princess, visible, selected, onFlip, ...rest }: MemoryCardProps) {
     const rotateY = useSharedValue(0)
+    const rotateYa = useSharedValue(0)
 
     const frontAnimatedStyle = useAnimatedStyle(() => {
         return {
             transform: [{
                 rotateY:
-                    `${interpolate(rotateY.value, [0, 1], [0, 180])}deg`
-            }]
-        }
-    })
-    const backAnimatedStyle = useAnimatedStyle(() => {
-        return {
-            transform: [{
-                rotateY:
-                    `${interpolate(rotateY.value, [0, 1], [180, 360])}deg`
+                    `${interpolate(rotateYa.value, [1, 0], [0, -180])}deg`
             }]
         }
     })
 
-    const testeAnimatedStyle = useAnimatedStyle(() => {
+
+    const backAnimatedStyle = useAnimatedStyle(() => {
         return {
             transform: [{
                 rotateY:
-                    `${interpolate(rotateY.value, [0, 1], [360, 180])}deg`
+                    `${interpolate(rotateY.value, [1, 0], [180, 360])}deg`
             }]
         }
     })
-    const onHandleCard = () => {
-        onTest()
+
+    const onHandleCard = async () => {
+        onFlip()
         const newValue = rotateY.value === 0 ? 1 : 0;
-        rotateY.value = withTiming(newValue, { duration: 400 });
+        const newValuea = rotateYa.value === 0 ? 1 : 0;
+        rotateY.value = withTiming(newValue, { duration: 300 });
+        rotateYa.value = withTiming(newValuea, { duration: 2000 });
     }
     return (
-        <S.Container visible={visible} selected={selected} onPress={onHandleCard}  >
-            {(visible || selected) && (
-                <>
-                    <S.Avatar style={backAnimatedStyle} source={PRINCESS[princess]} />
-                </>) 
+        <S.Container visible={visible} selected={selected} onPress={onHandleCard} {...rest} >
+            {selected ? (
+                <S.Avatar style={backAnimatedStyle} source={PRINCESS[princess]} />
+            ) : (
+                <S.FrontCard style={frontAnimatedStyle} />
+            )
             }
-            {!selected && <S.FrontCard style={testeAnimatedStyle} />}
+            {visible && (
+                <S.Avatar
+                source={PRINCESS[princess]} />
+            )}
         </S.Container>
     )
 }

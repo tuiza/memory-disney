@@ -26,20 +26,20 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
     return (
         <Modal open={open} onClosed={onClosed}>
             <S.Container>
-            <Label color={Colors.purple} fontSize={30}>Tamanho</Label>
+            <Label color={Colors.purple} fontSize={30}>Nível</Label>
           <Button
             backgroundColor={size === 3 ? Colors.gray : Colors.pink}
             onPress={() => handleNewGame(3)}>
-        <Label color={Colors.purple}>3</Label>
+        <Label color={Colors.purple}>Fácil</Label>
         </Button>
           <Button
             backgroundColor={size === 6 ? Colors.gray : Colors.pink}
             onPress={() => handleNewGame(6)}>
-        <Label color={Colors.purple}>6</Label>
+        <Label color={Colors.purple}>Médio</Label>
         </Button>
           <Button backgroundColor={size === 9 ? Colors.gray : Colors.pink}
             onPress={() => handleNewGame(9)}>
-        <Label color={Colors.purple}>9</Label>
+        <Label color={Colors.purple}>Díficil</Label>
       </Button>
         
     </S.Container>

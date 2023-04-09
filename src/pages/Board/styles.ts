@@ -49,3 +49,8 @@ export const Cards = styled(FlatList)`
 
 	justify-items: center;
 `
+
+export const Logo = styled.Image`
+     width: 50px;
+     height: 50px;
+`

@@ -16,5 +16,8 @@ export const Castle = styled(AnimatedLottieView)`
      width: 100%;
      flex: 1;
 `
-export const Version = styled(Label)`
+
+export const Logo = styled.Image`
+     width: 100px;
+     height: 50px;
 `

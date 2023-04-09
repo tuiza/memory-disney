@@ -2,8 +2,7 @@ import React from 'react';
 
 import castle from './castle.json';
 import * as S from './styles';
-import Colors from '../../utils/colors';
-import { expo } from '../../../app.json';
+import tuiza from './tuiza_sembg.png';
 
 
 export default function SplashScreen({ setSplashScreen }: { setSplashScreen: () => void }) {
@@ -17,11 +16,9 @@ export default function SplashScreen({ setSplashScreen }: { setSplashScreen: () 
                 loop={false}
                 onAnimationFinish={setSplashScreen}
             />
-            <S.Version
-                color={Colors.purple}
-                fontSize={20}>
-                v {expo.version}
-            </S.Version>
+            <S.Logo
+                source={tuiza}
+            />
         </S.Container>
 
     );

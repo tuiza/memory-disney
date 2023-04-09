@@ -10,6 +10,7 @@ import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
 import { sizeState, victoriesState, defeatsState, movesState, timerState } from '../../../src/atoms/gameState';
 import { useRecoilValue, useRecoilState } from 'recoil';
+import tuiza from './logoPreto.png'
 
 type ImagesCards = {
     princess: keyof typeof PRINCESS_ENUM
@@ -205,6 +206,9 @@ export default function Board() {
                 <Label color={Colors.purple}>Tempo: {timer}</Label>
                 <Label color={Colors.purple}>Tentativas: {moves}</Label>
             </S.FooterContainer>
+            <S.Logo
+            source={tuiza}
+            />
 
         </S.Container>
     )

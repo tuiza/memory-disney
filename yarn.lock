@@ -1533,19 +1533,12 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@jest/create-cache-key-function@^29.0.3":
-  version "29.4.2"
-  resolved "https://registry.yarnpkg.com/@jest/create-cache-key-function/-/create-cache-key-function-29.4.2.tgz#cc8e966c28fd3bed309b0487de2e0bd12cbf519f"
-  integrity sha512-o2weIg3h8/7+jXF6EjcOiz9TAlNMtcmeH5IARTVgHs3IoQGbh5E/ZLLskfEsHVIYoCKgx+v093Vf8hOgMWggvg==
+"@jest/create-cache-key-function@^27.0.1":
+  version "27.5.1"
+  resolved "https://registry.yarnpkg.com/@jest/create-cache-key-function/-/create-cache-key-function-27.5.1.tgz#7448fae15602ea95c828f5eceed35c202a820b31"
+  integrity sha512-dmH1yW+makpTSURTy8VzdUwFnfQh1G8R+DxO2Ho2FFmBbKFEVm+3jWdvFhE2VqB/LATCTokkP0dotjyQyw5/AQ==
   dependencies:
-    "@jest/types" "^29.4.2"
-
-"@jest/schemas@^29.4.2":
-  version "29.4.2"
-  resolved "https://registry.yarnpkg.com/@jest/schemas/-/schemas-29.4.2.tgz#cf7cfe97c5649f518452b176c47ed07486270fc1"
-  integrity sha512-ZrGzGfh31NtdVH8tn0mgJw4khQuNHiKqdzJAFbCaERbyCP9tHlxWuL/mnMu8P7e/+k4puWjI1NOzi/sFsjce/g==
-  dependencies:
-    "@sinclair/typebox" "^0.25.16"
+    "@jest/types" "^27.5.1"
 
 "@jest/types@^26.6.2":
   version "26.6.2"
@@ -1567,18 +1560,6 @@
     "@types/istanbul-reports" "^3.0.0"
     "@types/node" "*"
     "@types/yargs" "^16.0.0"
-    chalk "^4.0.0"
-
-"@jest/types@^29.4.2":
-  version "29.4.2"
-  resolved "https://registry.yarnpkg.com/@jest/types/-/types-29.4.2.tgz#8f724a414b1246b2bfd56ca5225d9e1f39540d82"
-  integrity sha512-CKlngyGP0fwlgC1BRUtPZSiWLBhyS9dKwKmyGxk8Z6M82LBEGB2aLQSg+U1MyLsU+M7UjnlLllBM2BLWKVm/Uw==
-  dependencies:
-    "@jest/schemas" "^29.4.2"
-    "@types/istanbul-lib-coverage" "^2.0.0"
-    "@types/istanbul-reports" "^3.0.0"
-    "@types/node" "*"
-    "@types/yargs" "^17.0.8"
     chalk "^4.0.0"
 
 "@jridgewell/gen-mapping@^0.1.0":
@@ -1686,7 +1667,7 @@
   dependencies:
     serve-static "^1.13.1"
 
-"@react-native-community/cli-doctor@^9.2.1":
+"@react-native-community/cli-doctor@^9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-doctor/-/cli-doctor-9.3.0.tgz#8817a3fd564453467def5b5bc8aecdc4205eff50"
   integrity sha512-/fiuG2eDGC2/OrXMOWI5ifq4X1gdYTQhvW2m0TT5Lk1LuFiZsbTCp1lR+XILKekuTvmYNjEGdVpeDpdIWlXdEA==
@@ -1708,7 +1689,7 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
-"@react-native-community/cli-hermes@^9.2.1":
+"@react-native-community/cli-hermes@^9.3.1":
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-hermes/-/cli-hermes-9.3.1.tgz#569d27c1effd684ba451ad4614e29a99228cec49"
   integrity sha512-Mq4PK8m5YqIdaVq5IdRfp4qK09aVO+aiCtd6vjzjNUgk1+1X5cgUqV6L65h4N+TFJYJHcp2AnB+ik1FAYXvYPQ==
@@ -1719,20 +1700,7 @@
     hermes-profile-transformer "^0.0.6"
     ip "^1.1.5"
 
-"@react-native-community/cli-platform-android@9.2.1":
-  version "9.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-android/-/cli-platform-android-9.2.1.tgz#cd73cb6bbaeb478cafbed10bd12dfc01b484d488"
-  integrity sha512-VamCZ8nido3Q3Orhj6pBIx48itORNPLJ7iTfy3nucD1qISEDih3DOzCaQCtmqdEBgUkNkNl0O+cKgq5A3th3Zg==
-  dependencies:
-    "@react-native-community/cli-tools" "^9.2.1"
-    chalk "^4.1.2"
-    execa "^1.0.0"
-    fs-extra "^8.1.0"
-    glob "^7.1.3"
-    logkitty "^0.7.1"
-    slash "^3.0.0"
-
-"@react-native-community/cli-platform-android@^9.3.1":
+"@react-native-community/cli-platform-android@9.3.1", "@react-native-community/cli-platform-android@^9.3.1":
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-android/-/cli-platform-android-9.3.1.tgz#378cd72249653cc74672094400657139f21bafb8"
   integrity sha512-m0bQ6Twewl7OEZoVf79I2GZmsDqh+Gh0bxfxWgwxobsKDxLx8/RNItAo1lVtTCgzuCR75cX4EEO8idIF9jYhew==
@@ -1745,18 +1713,7 @@
     logkitty "^0.7.1"
     slash "^3.0.0"
 
-"@react-native-community/cli-platform-ios@9.2.1":
-  version "9.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-ios/-/cli-platform-ios-9.2.1.tgz#d90740472216ffae5527dfc5f49063ede18a621f"
-  integrity sha512-dEgvkI6CFgPk3vs8IOR0toKVUjIFwe4AsXFvWWJL5qhrIzW9E5Owi0zPkSvzXsMlfYMbVX0COfVIK539ZxguSg==
-  dependencies:
-    "@react-native-community/cli-tools" "^9.2.1"
-    chalk "^4.1.2"
-    execa "^1.0.0"
-    glob "^7.1.3"
-    ora "^5.4.1"
-
-"@react-native-community/cli-platform-ios@^9.3.0":
+"@react-native-community/cli-platform-ios@9.3.0", "@react-native-community/cli-platform-ios@^9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-ios/-/cli-platform-ios-9.3.0.tgz#45abde2a395fddd7cf71e8b746c1dc1ee2260f9a"
   integrity sha512-nihTX53BhF2Q8p4B67oG3RGe1XwggoGBrMb6vXdcu2aN0WeXJOXdBLgR900DAA1O8g7oy1Sudu6we+JsVTKnjw==
@@ -1820,16 +1777,16 @@
   dependencies:
     joi "^17.2.1"
 
-"@react-native-community/cli@9.2.1":
-  version "9.2.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-9.2.1.tgz#15cc32531fc323d4232d57b1f2d7c571816305ac"
-  integrity sha512-feMYS5WXXKF4TSWnCXozHxtWq36smyhGaENXlkiRESfYZ1mnCUlPfOanNCAvNvBqdyh9d4o0HxhYKX1g9l6DCQ==
+"@react-native-community/cli@9.3.2":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-9.3.2.tgz#81761880af00c1894d85380d8c9a358659865204"
+  integrity sha512-IAW4X0vmX/xozNpp/JVZaX7MrC85KV0OP2DF4o7lNGOfpUhzJAEWqTfkxFYS+VsRjZHDve4wSTiGIuXwE7FG1w==
   dependencies:
     "@react-native-community/cli-clean" "^9.2.1"
     "@react-native-community/cli-config" "^9.2.1"
     "@react-native-community/cli-debugger-ui" "^9.0.0"
-    "@react-native-community/cli-doctor" "^9.2.1"
-    "@react-native-community/cli-hermes" "^9.2.1"
+    "@react-native-community/cli-doctor" "^9.3.0"
+    "@react-native-community/cli-hermes" "^9.3.1"
     "@react-native-community/cli-plugin-metro" "^9.2.1"
     "@react-native-community/cli-server-api" "^9.2.1"
     "@react-native-community/cli-tools" "^9.2.1"
@@ -1887,11 +1844,6 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@sideway/pinpoint/-/pinpoint-2.0.0.tgz#cff8ffadc372ad29fd3f78277aeb29e632cc70df"
   integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
-
-"@sinclair/typebox@^0.25.16":
-  version "0.25.21"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.21.tgz#763b05a4b472c93a8db29b2c3e359d55b29ce272"
-  integrity sha512-gFukHN4t8K4+wVC+ECqeqwzBDeFeTzBXroBTqE6vcWrQGbEUpHO7LYdG0f4xnvYq4VOEwITSlHlp0JBAIFMS/g==
 
 "@types/hammerjs@^2.0.36":
   version "2.0.41"
@@ -2017,13 +1969,6 @@
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-16.0.5.tgz#12cc86393985735a283e387936398c2f9e5f88e3"
   integrity sha512-AxO/ADJOBFJScHbWhq2xAhlWP24rY4aCEG/NFaMvbT3X2MgRsLjhjQwsn0Zi5zn0LG9jUhCCZMeX9Dkuw6k+vQ==
-  dependencies:
-    "@types/yargs-parser" "*"
-
-"@types/yargs@^17.0.8":
-  version "17.0.22"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.22.tgz#7dd37697691b5f17d020f3c63e7a45971ff71e9a"
-  integrity sha512-pet5WJ9U8yPVRhkwuEIp5ktAeAqRZOq4UdAyWLWzxbtpyXnzbtLdKiXAjJzi/KLmPGS9wk86lUFWZFN6sISo4g==
   dependencies:
     "@types/yargs-parser" "*"
 
@@ -3761,6 +3706,11 @@ expo-constants@~14.0.0, expo-constants@~14.0.2:
     "@expo/config" "~7.0.2"
     uuid "^3.3.2"
 
+expo-eas-client@~0.4.0:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/expo-eas-client/-/expo-eas-client-0.4.1.tgz#4ccdafb5faeac97394fb3fa4c777ec22b2017f1d"
+  integrity sha512-bIj2rm6lw/iZAOAW5CSAxshSXi2oY+ORpHRp4ZdqSDuwA0RIa9jGyMm1Jhostjjz5y9k2uur5vtVqq6P3Bwx/Q==
+
 expo-error-recovery@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/expo-error-recovery/-/expo-error-recovery-4.0.1.tgz#3e3333e134c992c234539d3773fe78915c883755"
@@ -3780,10 +3730,22 @@ expo-font@~11.0.1:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-json-utils@~0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/expo-json-utils/-/expo-json-utils-0.4.0.tgz#47ae83a1cc973101d62371f94790e9ad39491751"
+  integrity sha512-lK6gjea72XTYafpKNNJaMrBK5dYAX8LFLXrp/M1MKJU4Zy7EHd2rKrLwop3GZts8VdwLHeVcMko79SAbhe3i5Q==
+
 expo-keep-awake@~11.0.1:
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-11.0.1.tgz#ee354465892a94040ffe09901b85b469e7d54fb3"
   integrity sha512-44ZjgLE4lnce2d40Pv8xsjMVc6R5GvgHOwZfkLYtGmgYG9TYrEJeEj5UfSeweXPL3pBFhXKfFU8xpGYMaHdP0A==
+
+expo-manifests@~0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/expo-manifests/-/expo-manifests-0.4.0.tgz#6fd44b6427e113f2eb9409ca46df95cbbea068df"
+  integrity sha512-IdZjIYDxx4nH0Gb3X4T4/2YknmR/jSLxymAS0m7SfJ9V7Vlu/y0p3lNwUys9/JzihxX9PDIuOi/Y4/uqL6TlXg==
+  dependencies:
+    expo-json-utils "~0.4.0"
 
 expo-modules-autolinking@1.0.2:
   version "1.0.2"
@@ -3808,6 +3770,34 @@ expo-status-bar@~1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.4.2.tgz#14f2b9a6dc7d550578421f07e0046f5fafc2b403"
   integrity sha512-ZWjO6D4ARGYfAd3SWDD3STNudHDhyBZDZjhhseqoEmsf7bS9ykny8KKOhlzJW24qIQNPhkgdvHhaw9fQwMJy3Q==
+
+expo-structured-headers@~3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/expo-structured-headers/-/expo-structured-headers-3.0.1.tgz#291596c61acd2a45839ad6c6798c3d5cfc1eb4e9"
+  integrity sha512-x6hkzuQL5HJoyB+xQyBf9M04ZUmrjFWqEW7gzIYWN/6LA+dgyaV4fF6U9++Re+GgGjF03vHJFqR1xYaosKKZYQ==
+
+expo-updates-interface@~0.8.0:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/expo-updates-interface/-/expo-updates-interface-0.8.1.tgz#baeeeb01a77439682432be83ba78bc2e00547c4e"
+  integrity sha512-1TPFCTQFHMZbltFGnxig3PbN/b6nO4T0RyL8XqdmYvQY0ElOCprZXQQ8vNDqeLYHgausG1lD4OyJwFzh2SNBSA==
+
+expo-updates@~0.15.6:
+  version "0.15.6"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.15.6.tgz#99e3faa3e38312ebddb77afb697863fa1f1f6a03"
+  integrity sha512-g5BuCmWdyiLqFaVkVz+m7r6U7MHJrLKvqybs04H6ArMNpTEf6FhUwSzmnCyOkSSP35KFNkC/I0dYlgW3Vcf1sw==
+  dependencies:
+    "@expo/code-signing-certificates" "0.0.5"
+    "@expo/config" "~7.0.2"
+    "@expo/config-plugins" "~5.0.3"
+    "@expo/metro-config" "~0.5.0"
+    arg "4.1.0"
+    expo-eas-client "~0.4.0"
+    expo-manifests "~0.4.0"
+    expo-structured-headers "~3.0.0"
+    expo-updates-interface "~0.8.0"
+    fbemitter "^3.0.0"
+    resolve-from "^5.0.0"
+    uuid "^3.4.0"
 
 expo@~47.0.12:
   version "47.0.13"
@@ -6384,7 +6374,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-promise@^8.0.3:
+promise@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/promise/-/promise-8.3.0.tgz#8cb333d1edeb61ef23869fbb8a4ea0279ab60e0a"
   integrity sha512-rZPNPKTOYVNEEKFaq1HqTgOwZD+4/YHS5ukLzQCypkj+OkYx7iv0mA91lJlpPPZ8vMau3IIGj5Qlwrx+8iiSmg==
@@ -6563,15 +6553,15 @@ react-native-web@~0.18.9:
     postcss-value-parser "^4.2.0"
     styleq "^0.1.2"
 
-react-native@0.70.5:
-  version "0.70.5"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.70.5.tgz#f60540b21d338891086e0a834e331c124dd1f55c"
-  integrity sha512-5NZM80LC3L+TIgQX/09yiyy48S73wMgpIgN5cCv3XTMR394+KpDI3rBZGH4aIgWWuwijz31YYVF5504+9n2Zfw==
+react-native@0.70.8:
+  version "0.70.8"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.70.8.tgz#aa9aae8e6291589908db74fe69e0ec1d9a9c5490"
+  integrity sha512-O3ONJed9W/VEEVWsbZcwyMDhnEvw7v9l9enqWqgbSGLzHfh6HeIGMCNmjz+kRsHnC7AiF47fupWfgYX7hNnhoQ==
   dependencies:
-    "@jest/create-cache-key-function" "^29.0.3"
-    "@react-native-community/cli" "9.2.1"
-    "@react-native-community/cli-platform-android" "9.2.1"
-    "@react-native-community/cli-platform-ios" "9.2.1"
+    "@jest/create-cache-key-function" "^27.0.1"
+    "@react-native-community/cli" "9.3.2"
+    "@react-native-community/cli-platform-android" "9.3.1"
+    "@react-native-community/cli-platform-ios" "9.3.0"
     "@react-native/assets" "1.0.0"
     "@react-native/normalize-color" "2.0.0"
     "@react-native/polyfills" "2.0.0"
@@ -6588,7 +6578,7 @@ react-native@0.70.5:
     mkdirp "^0.5.1"
     nullthrows "^1.1.1"
     pretty-format "^26.5.2"
-    promise "^8.0.3"
+    promise "^8.3.0"
     react-devtools-core "4.24.0"
     react-native-codegen "^0.70.6"
     react-native-gradle-plugin "^0.70.3"

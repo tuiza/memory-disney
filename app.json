@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "memoria-disney",
-    "slug": "memoria-disney",
+    "name": "Evil Royal",
+    "slug": "evil-royal",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -14,12 +14,13 @@
     "ios": {
       "supportsTablet": true
     },
+    "icon": "./assets/icon.png",
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.luiza_marlene.memoriadisney"
+      "package": "com.luiza_marlene.eveilroyal"
     },
     "web": {
       "favicon": "./assets/favicon.png"

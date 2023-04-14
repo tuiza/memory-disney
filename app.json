@@ -1,7 +1,7 @@
 {
-  "expo": {
+  "expo": { 
     "name": "Evil Royal",
-    "slug": "evil-royal",
+    "slug": "memoria-disney",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.luiza_marlene.eveilroyal"
+      "package": "com.luiza_marlene.memoriadisney"
     },
     "web": {
       "favicon": "./assets/icon.png"

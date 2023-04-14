@@ -1,3 +1,7 @@
+
+
+<h1 align="center">Evil Royal</h1>
+
 <div align="center" id="top"> 
   <img src="./assets/evilRoyal.gif" alt="Memoria Disney" title="Demonstracao" />
 
@@ -5,8 +9,6 @@
 
   <!-- <a href="https://memoriadisney.netlify.com">Demo</a> -->
 </div>
-
-<h1 align="center">Evil Royal</h1>
 
 <p align="center">
   <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/luizamarlene/memoria-disney?color=56BEB8">

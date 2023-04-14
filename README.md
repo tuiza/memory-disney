@@ -11,19 +11,7 @@
 </div>
 
 <p align="center">
-  <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/luizamarlene/memoria-disney?color=56BEB8">
-
-  <img alt="Quantidade de linguagens utilizadas" src="https://img.shields.io/github/languages/count/luizamarlene/memoria-disney?color=56BEB8">
-
-  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/luizamarlene/memoria-disney?color=56BEB8">
-
-  <img alt="Licença" src="https://img.shields.io/github/license/luizamarlene/memoria-disney?color=56BEB8">
-
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/luizamarlene/memoria-disney?color=56BEB8" /> -->
-
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/luizamarlene/memoria-disney?color=56BEB8" /> -->
-
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/luizamarlene/memoria-disney?color=56BEB8" /> -->
+	<a href="https://memoriadisney.netlify.com"> ⬇️ Download na Play Store</a> 
 </p>
 
 <!-- Status -->

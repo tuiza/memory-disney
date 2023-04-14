@@ -36,13 +36,11 @@
 
 ## :dart: Sobre ##
 
-Jogo da memória desenvolvido com o React Native
+Jogo da memória desenvolvido com o React Native e Expo
 
 ## :sparkles: Funcionalidades ##
 
-:heavy_check_mark: ;\
-:heavy_check_mark: Modal;\
-:heavy_check_mark: Funcionalidade 3;
+:heavy_check_mark: Modal;
 
 ## :rocket: Tecnologias ##
 

@@ -81,7 +81,9 @@ $ yarn start
 Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 
-Feito com :heart: por <a href="https://github.com/luizamarlene" target="_blank">Luiza Marlene</a>
+Feito com :heart: por <a href="https://github.com/luizamarlene" target="_blank">
+	<img src="./assets/logoLuiza.gif" alt="Memoria Disney" title="Demonstracao" />
+</a>
 
 &#xa0;
 

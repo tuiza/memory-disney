@@ -82,7 +82,7 @@ Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para m
 
 
 Feito com :heart: por <a href="https://github.com/luizamarlene" target="_blank">
-	<img src="./assets/logoLuiza.gif" alt="Memoria Disney" title="Demonstracao" />
+	<img src="./assets/logoLuiza.png" alt="Memoria Disney" title="Demonstracao" />
 </a>
 
 &#xa0;

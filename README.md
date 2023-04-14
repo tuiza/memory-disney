@@ -36,12 +36,12 @@
 
 ## :dart: Sobre ##
 
-Sobre o seu projeto
+Jogo da memória desenvolvido com o React Native
 
 ## :sparkles: Funcionalidades ##
 
 :heavy_check_mark: ;\
-:heavy_check_mark: Funcionalidade 2;\
+:heavy_check_mark: Modal;\
 :heavy_check_mark: Funcionalidade 3;
 
 ## :rocket: Tecnologias ##

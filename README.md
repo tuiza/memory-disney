@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Memoria Disney" />
+  <img src="./assets/eveilRoyal.gif" alt="Memoria Disney" title="Demonstracao" />
 
   &#xa0;
 
   <!-- <a href="https://memoriadisney.netlify.com">Demo</a> -->
 </div>
 
-<h1 align="center">Princess Memory</h1>
+<h1 align="center">Evil Royal</h1>
 
 <p align="center">
   <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/luizamarlene/memoria-disney?color=56BEB8">

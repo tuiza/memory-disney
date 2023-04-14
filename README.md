@@ -40,7 +40,8 @@ Jogo da memória desenvolvido com o React Native e Expo
 
 ## :sparkles: Funcionalidades ##
 
-:heavy_check_mark: Modal;
+:heavy_check_mark: Jogo educativo;
+
 
 ## :rocket: Tecnologias ##
 

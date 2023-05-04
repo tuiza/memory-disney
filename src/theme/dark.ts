@@ -1,13 +1,8 @@
-/* type theme = {
-    background: string;
-    primary: string;
-    secondary: string;
-} */
-
 const dark = {
     background: "#202020",
-    primary: "#000000",
-    secondary: "#FFFFFF",
+    primary: "rgb(120,20,20)",
+    secondary: "#f9eac3",
+    footer:  "#f9eac3",
 }
 
 export default dark

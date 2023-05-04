@@ -7,5 +7,5 @@ type LabelProps = {
 export const Label = styled.Text<LabelProps>`
     color: ${({ color }) => color};
     font-weight: 500;
-    font-size: 25px;
+    font-size: 30px;
 `

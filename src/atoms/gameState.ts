@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 export const sizeState = atom<3 | 6 | 9>({
     key: 'sizeState',
-    default: 3,
+    default: 6,
 })
 
 export const victoriesState = atom<number>({
@@ -25,7 +25,7 @@ export const timerState = atom<string>({
     default: '0:00',
 })
 
-export const themeState = atom<'light' | 'dark'>({
+export const themeState = atom<'light' | 'dark'>({ // tirar daqui
     key: 'themeState',
     default: 'light',
 })

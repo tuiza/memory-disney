@@ -11,5 +11,5 @@ export const Button = styled.TouchableOpacity<ButtonProps>`
 	height: 50px;
 	border-radius: 30px;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
 `

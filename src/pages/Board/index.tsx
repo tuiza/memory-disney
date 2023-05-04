@@ -24,7 +24,7 @@ const imagesBySize = {
     3: [
         PRINCESS_ENUM.bela,
         PRINCESS_ENUM.mulan,
-        PRINCESS_ENUM.ariel
+        PRINCESS_ENUM.ariel,
     ],
     6: [
         PRINCESS_ENUM.bela,
@@ -162,25 +162,26 @@ export default function Board() {
 
     return (
         <S.Container>
-            <Label color={Colors.purple} fontSize={50}>Memória</Label>
+            <Label color={themeContext.primary} fontSize={50}>Memória</Label>
             <S.ButtonsContainer>
-                <Button backgroundColor={Colors.pink} onPress={() => onHandleRestart()}>
-                    <Label color={Colors.purple}>Reiniciar</Label>
+                <Button backgroundColor={themeContext.secondary} onPress={() => onHandleRestart()}>
+                    <Label color={themeContext.primary}>Reiniciar</Label>
                 </Button>
-                <Button backgroundColor={Colors.purple} onPress={() => onHandleNewModal()}>
-                    <Label color={Colors.pink}>Novo</Label>
+                <Button backgroundColor={themeContext.primary} onPress={() => onHandleNewModal()}>
+                    <Label color={themeContext.secondary}>Novo</Label>
                 </Button>
             </S.ButtonsContainer>
             <NewModal open={newModal} onClosed={() => setNewModal(false)} />
             <VitoryModal
                 open={victoryModal}
-                onClosed={() => setVictoryModal(false)}
-                setNewModal={() => { onHandleNewModal() }
-                } />
+                onClosed={() => {
+                    setVictoryModal(false)
+                    onHandleRestart()
+                } }
+                setNewModal={() => onHandleNewModal()} />
 
             <S.CardContainer
                 showsVerticalScrollIndicator={true}
-
                 size={size}
                 centerContent={true}
                 contentContainerStyle={{
@@ -191,6 +192,7 @@ export default function Board() {
                     alignItems: 'center',
                     width: '100%',
                     alignContent: 'center',
+                    padding: 5,
                 }}
             >
                 {
@@ -207,8 +209,8 @@ export default function Board() {
             </S.CardContainer>
 
             <S.FooterContainer>
-                <Label color={Colors.purple}>Tempo: {timer}</Label>
-                <Label color={Colors.purple}>Tentativas: {moves}</Label>
+                <Label color={themeContext.footer} >Tempo: {timer}</Label>
+                <Label color={themeContext.footer} >Tentativas: {moves}</Label>
             </S.FooterContainer>
             <S.Logo
                 source={tuiza}

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { FlatList , Platform, StatusBar } from "react-native";
+import { Platform, StatusBar } from "react-native";
 
 export const Container = styled.SafeAreaView`
 	flex: 1;
@@ -15,20 +15,10 @@ export const ButtonsContainer = styled.View`
 	flex-direction: row;
 `
 
-export const Teste = styled.View<{ size: number }>`
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 350px;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-	align-self: center;
-`
-
 export const CardContainer = styled.ScrollView<{ size: number }>`
 	width: 350px;
 	align-self: center;
-	height: ${({ size }) => size * 60}px;
+	height: ${({ size }) => size * 70}px;
 	align-content: center;
 `
 
@@ -36,12 +26,7 @@ export const FooterContainer = styled.View`
 	flex-direction: row;
 	justify-content: space-around;
 	align-content: center;
-	width: 90%;
-`
-
-export const Cards = styled(FlatList)`
-	background-color: blue;
-	justify-items: center;
+	width: 100%;
 `
 
 export const Logo = styled.Image`

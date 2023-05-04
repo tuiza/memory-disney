@@ -12,34 +12,34 @@ type Memory = {
 }
 
 export const Container = styled.Pressable<Memory>`
-    width: 100px;
-    height: 100px;
+    width: 105px;
+    height: 105px;
     border-radius: 100px;
 	align-items: center;
 	justify-content: center;
-    margin: 10px 0;
+    margin: 8px 0;
 `
 
 export const Avatar = styled(Animated.Image)`
     position: absolute;
     top: 0px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+    width: 105px;
+    height: 105px;
+    border-radius: 100px;
     background-color: #F18B8B;
 `
 
 export const FrontCard = styled(Animated.View)`
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+    width: 105px;
+    height: 105px;
+    border-radius: 100px;
     background-color: #E4CBCB;
 `
 
 export const BackCard = styled(Animated.View)`
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+    width: 105px;
+    height: 105px;
+    border-radius: 100px;
     background-color: blue;
     position: absolute;
     top: 0px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 import { useFonts, PrincessSofia_400Regular } from '@expo-google-fonts/princess-sofia';
-import { StyleProp, TextProps } from 'react-native';
+import { TextProps } from 'react-native';
 
 type LabelProps = {
   children: React.ReactNode

@@ -1,12 +1,12 @@
-import styled, {css} from 'styled-components/native'
+import styled from 'styled-components/native'
 import { FlatList , Platform, StatusBar } from "react-native";
-import Label from '../../components/Label';
 
 export const Container = styled.SafeAreaView`
 	flex: 1;
 	align-items: center;
 	justify-content: flex-start;
 	padding-top: ${Platform.OS === "android" ? StatusBar.currentHeight : 0}px;
+	background-color: ${({ theme }) => theme.background};
 `
 
 export const ButtonsContainer = styled.View`

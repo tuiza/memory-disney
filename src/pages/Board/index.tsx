@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import Label from '../../components/Label'
 
@@ -9,8 +9,10 @@ import Button from '../../components/Button';
 import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
 import { sizeState, victoriesState, defeatsState, movesState, timerState } from '../../../src/atoms/gameState';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue, useRecoilState, RecoilRoot } from 'recoil';
 import tuiza from './logoPreto.png'
+import { themeState } from '../../atoms/gameState';
+import { ThemeContext } from 'styled-components';
 
 type ImagesCards = {
     princess: keyof typeof PRINCESS_ENUM
@@ -55,7 +57,8 @@ export default function Board() {
     const [imagesCards, setImagesCards] = useState<ImagesCards>([]);
     const size = useRecoilValue(sizeState);
     const [timerInterval, setTimerInterval] = useState<NodeJS.Timer>(null as any);
-
+    const [setTheme] = useRecoilState(themeState) // usar no toogle
+    const themeContext = useContext(ThemeContext);
 
     const onHandleNewModal = () => {
         setNewModal(true)
@@ -64,7 +67,7 @@ export default function Board() {
         clearInterval(timerInterval);
     }
 
-    const verifyEqualCards = async() => {
+    const verifyEqualCards = async () => {
         const newImagesCards = [...imagesCards]
         const selectedCards = newImagesCards.filter((item) => item.selected)
 
@@ -133,9 +136,9 @@ export default function Board() {
                 const dateObj = new Date(counter * 1000);
                 const minutes = dateObj.getUTCMinutes();
                 const seconds = dateObj.getSeconds();
-    
+
                 const timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-    
+
                 setTimerState(timeString)
             }, 1000);
 
@@ -172,11 +175,12 @@ export default function Board() {
             <VitoryModal
                 open={victoryModal}
                 onClosed={() => setVictoryModal(false)}
-                setNewModal={() => { onHandleNewModal()}
-            } />
+                setNewModal={() => { onHandleNewModal() }
+                } />
 
             <S.CardContainer
-                
+                showsVerticalScrollIndicator={true}
+
                 size={size}
                 centerContent={true}
                 contentContainerStyle={{
@@ -207,7 +211,7 @@ export default function Board() {
                 <Label color={Colors.purple}>Tentativas: {moves}</Label>
             </S.FooterContainer>
             <S.Logo
-            source={tuiza}
+                source={tuiza}
             />
 
         </S.Container>

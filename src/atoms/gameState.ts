@@ -24,3 +24,8 @@ export const timerState = atom<string>({
     key: 'timerState',
     default: '0:00',
 })
+
+export const themeState = atom<'light' | 'dark'>({
+    key: 'themeState',
+    default: 'light',
+})

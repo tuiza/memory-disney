@@ -15,8 +15,10 @@ export default function App() {
           <SplashScreen
             setSplashScreen={() => setShowSplashScreen(false)}
           />
-        ) : (
-          <Board />)
+        ) :
+          (
+            <Board />
+          )
         }
       </GestureHandlerRootView>
     </RecoilRoot>

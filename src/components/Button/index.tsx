@@ -7,7 +7,7 @@ type ButtonProps = {
     children: JSX.Element
 } & TouchableOpacityProps
 
-export default function Button({children, backgroundColor, ...rest}: ButtonProps) {
+export default function Button({ children, backgroundColor, ...rest }: ButtonProps) {
     return <S.Button backgroundColor={backgroundColor} {...rest}>
         {children}
     </S.Button>;

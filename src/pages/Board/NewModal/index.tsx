@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../../../components/Button';
 import Label from '../../../components/Label';
 import { Modal } from '../../../components/Modal';
 import * as S from './styles'
-import Colors from '../../../utils/colors';
 import { useRecoilState } from 'recoil';
 import { sizeState, defeatsState } from '../../../../src/atoms/gameState'
+import { ThemeContext } from 'styled-components'
 
 type NewModalProps = {
     open: boolean
@@ -15,6 +15,7 @@ type NewModalProps = {
 export default function NewModal({ open, onClosed }: NewModalProps) {
   const [size, setSize] = useRecoilState(sizeState);
   const [defeated, setDefeated] = useRecoilState(defeatsState);
+  const themeContext = useContext(ThemeContext)
 
   const handleNewGame = (size: 3 | 6 | 9) => { 
     setSize(size);
@@ -24,22 +25,22 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
   }
 
     return (
-        <Modal open={open} onClosed={onClosed}>
+        <Modal open={open} onClosed={onClosed}> 
             <S.Container>
-            <Label color={Colors.purple} fontSize={30}>Nível</Label>
+            <Label color={themeContext.primary} fontSize={30}>Nível</Label>
           <Button
-            backgroundColor={size === 3 ? Colors.gray : Colors.pink}
+            backgroundColor={size === 3 ? themeContext.primary : themeContext.disable}
             onPress={() => handleNewGame(3)}>
-        <Label color={Colors.purple}>Fácil</Label>
+            <Label color={size === 3 ? themeContext.disable : themeContext.primary}>Fácil</Label>
         </Button>
           <Button
-            backgroundColor={size === 6 ? Colors.gray : Colors.pink}
+            backgroundColor={size === 6 ? themeContext.primary : themeContext.disable}
             onPress={() => handleNewGame(6)}>
-        <Label color={Colors.purple}>Médio</Label>
+            <Label color={size === 6 ? themeContext.disable : themeContext.primary}>Médio</Label>
         </Button>
-          <Button backgroundColor={size === 9 ? Colors.gray : Colors.pink}
+          <Button backgroundColor={size === 9 ? themeContext.primary : themeContext.disable}
             onPress={() => handleNewGame(9)}>
-        <Label color={Colors.purple}>Díficil</Label>
+            <Label color={size === 9 ? themeContext.disable : themeContext.primary}>Díficil</Label>
       </Button>
         
     </S.Container>

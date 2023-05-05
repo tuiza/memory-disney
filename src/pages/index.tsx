@@ -14,7 +14,7 @@ const Index = () => {
 
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
-            <ThemeProvider theme={themes["light"]}>
+            <ThemeProvider theme={themes[theme]}>
                 <StatusBar style={theme} />
                 {showSplashScreen
                     ? (<SplashScreen setSplashScreen={() => setShowSplashScreen(false)} />)

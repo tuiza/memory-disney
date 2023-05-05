@@ -1,5 +1,6 @@
 import styled from 'styled-components/native'
 import { Platform, StatusBar } from "react-native";
+import Toggle from "react-native-toggle-element";
 
 export const Container = styled.SafeAreaView`
 	flex: 1;
@@ -20,6 +21,20 @@ export const CardContainer = styled.ScrollView<{ size: number }>`
 	align-self: center;
 	height: ${({ size }) => size * 70}px;
 	align-content: center;
+`
+
+export const ToggleConatiner = styled.View`
+	position: absolute;
+	left: 40%;
+	top: 15%;
+`
+
+export const Header = styled.View`
+	flex-direction: row;
+	align-items: flex-start;
+`
+
+export const ToggleButton = styled(Toggle)`
 `
 
 export const FooterContainer = styled.View`

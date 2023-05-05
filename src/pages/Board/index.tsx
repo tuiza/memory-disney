@@ -3,16 +3,18 @@ import React, { useContext, useEffect, useState } from 'react'
 import Label from '../../components/Label'
 
 import * as S from './styles'
-import Colors from '../../utils/colors';
 import MemoryCard, { PRINCESS_ENUM } from '../../components/MemoryCard';
 import Button from '../../components/Button';
 import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
-import { sizeState, victoriesState, defeatsState, movesState, timerState } from '../../../src/atoms/gameState';
-import { useRecoilValue, useRecoilState, RecoilRoot } from 'recoil';
-import tuiza from './logoPreto.png'
+import { sizeState, victoriesState, movesState, timerState } from '../../../src/atoms/gameState';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import tuizaPreto from './logoPreto.png'
+import tuizaBranco from './logoBranco.png'
 import { themeState } from '../../atoms/gameState';
 import { ThemeContext } from 'styled-components';
+
+import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 
 type ImagesCards = {
     princess: keyof typeof PRINCESS_ENUM
@@ -48,22 +50,27 @@ const imagesBySize = {
 }
 
 export default function Board() {
+    const [toggleValue, setToggleValue] = useState(false);
     const [newModal, setNewModal] = useState(false);
     const [victoryModal, setVictoryModal] = useState(false);
     const [victories, setVictories] = useRecoilState(victoriesState)
-    const [defeats, setDefeats] = useRecoilState(defeatsState)
     const [moves, setMoves] = useRecoilState(movesState)
     const [timer, setTimerState] = useRecoilState(timerState)
     const [imagesCards, setImagesCards] = useState<ImagesCards>([]);
-    const size = useRecoilValue(sizeState);
     const [timerInterval, setTimerInterval] = useState<NodeJS.Timer>(null as any);
-    const [setTheme] = useRecoilState(themeState) // usar no toogle
+    const [, setTheme] = useRecoilState(themeState) // usar no toogle
+
+    const size = useRecoilValue(sizeState);
     const themeContext = useContext(ThemeContext);
+
+    const onHandleToggle = () => {
+        setToggleValue(!toggleValue)
+        setTheme(toggleValue ? "light" : 'dark')
+    }
 
     const onHandleNewModal = () => {
         setNewModal(true)
         setVictoryModal(false)
-        setDefeats(defeats + 1)
         clearInterval(timerInterval);
     }
 
@@ -145,6 +152,7 @@ export default function Board() {
             setTimerInterval(interval)
         }
     }
+
     const onHandleRestart = () => {
         setImagesCards(imagesBySize[size]
             .concat(imagesBySize[size])
@@ -158,17 +166,49 @@ export default function Board() {
 
     useEffect(() => {
         onHandleRestart()
-    }, [size, defeats, victories])
+    }, [size, victories])
 
     return (
         <S.Container>
-            <Label color={themeContext.primary} fontSize={50}>Memória</Label>
+            <S.Header>
+                <Label color={themeContext.primary} fontSize={40}>{toggleValue ? 'Evil' : 'Royal'}</Label>
+                <S.ToggleConatiner>
+                    <S.ToggleButton
+                        value={toggleValue}
+                        onPress={() => onHandleToggle()}
+                        thumbInActiveComponent={
+                            <FontAwesome5 name="crown" size={25} color={themeContext.primary} />
+                        }
+                        thumbActiveComponent={
+                            <MaterialCommunityIcons name="emoticon-devil" size={32} color={themeContext.primary} />
+                        }
+                        thumbButton={{
+                            width: 35,
+                            height: 35,
+                            radius: 30,
+                            
+                            activeBackgroundColor: themeContext.disable,
+                            inActiveBackgroundColor: themeContext.disable,
+                        }}
+                        trackBar={{
+                            activeBackgroundColor: themeContext.secondary,
+                            inActiveBackgroundColor: themeContext.secondary,
+                            borderActiveColor: themeContext.secondary,
+                            borderInActiveColor: themeContext.primary,
+                            borderWidth: 0,
+                            width: 65,
+                            height: 20,
+
+                        }}
+                    />
+                </S.ToggleConatiner>
+                </S.Header>
             <S.ButtonsContainer>
                 <Button backgroundColor={themeContext.secondary} onPress={() => onHandleRestart()}>
-                    <Label color={themeContext.primary}>Reiniciar</Label>
+                    <Label color={themeContext.primary}>Restart</Label>
                 </Button>
                 <Button backgroundColor={themeContext.primary} onPress={() => onHandleNewModal()}>
-                    <Label color={themeContext.secondary}>Novo</Label>
+                    <Label color={themeContext.secondary}>New</Label>
                 </Button>
             </S.ButtonsContainer>
             <NewModal open={newModal} onClosed={() => setNewModal(false)} />
@@ -177,7 +217,7 @@ export default function Board() {
                 onClosed={() => {
                     setVictoryModal(false)
                     onHandleRestart()
-                } }
+                }}
                 setNewModal={() => onHandleNewModal()} />
 
             <S.CardContainer
@@ -209,13 +249,13 @@ export default function Board() {
             </S.CardContainer>
 
             <S.FooterContainer>
-                <Label color={themeContext.footer} >Tempo: {timer}</Label>
-                <Label color={themeContext.footer} >Tentativas: {moves}</Label>
+                <Label color={themeContext.footer} >Time: {timer}</Label>
+                <Label color={themeContext.footer} >Moves: {moves}</Label>
             </S.FooterContainer>
             <S.Logo
-                source={tuiza}
+                source={toggleValue ? tuizaBranco : tuizaPreto}
             />
 
-        </S.Container>
+        </S.Container >
     )
 }

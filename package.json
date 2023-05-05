@@ -20,6 +20,7 @@
     "react-native-gesture-handler": "~2.8.0",
     "react-native-modalize": "^2.1.1",
     "react-native-reanimated": "~2.12.0",
+    "react-native-toggle-element": "^2.0.1",
     "react-native-web": "~0.18.9",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6"

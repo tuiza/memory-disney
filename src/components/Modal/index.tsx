@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import { Modalize,  ModalizeProps } from 'react-native-modalize';
+import React, { useRef, useEffect, useContext } from 'react';
+import { Modalize, ModalizeProps } from 'react-native-modalize';
+import { ThemeContext } from 'styled-components'
 
 type ModaLProps = {
   open: boolean
@@ -8,6 +9,7 @@ type ModaLProps = {
 
 export const Modal = ({ open, children, ...rest}: ModaLProps) => {
   const modalizeRef = useRef<Modalize>(null);
+  const theme = useContext(ThemeContext)
 
   useEffect(() => {
     if (open) {
@@ -22,6 +24,7 @@ export const Modal = ({ open, children, ...rest}: ModaLProps) => {
       ref={modalizeRef}
       childrenStyle={{ height: 300}}
       adjustToContentHeight
+      modalStyle={{ backgroundColor: theme.background }}
       {...rest} >{children}</Modalize>
   );
 };

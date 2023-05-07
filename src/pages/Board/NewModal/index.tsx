@@ -25,9 +25,9 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
   }
 
     return (
-        <Modal open={open} onClosed={onClosed}> 
+      <Modal open={open} onClosed={onClosed} > 
             <S.Container>
-            <Label color={themeContext.primary} fontSize={30}>Nível</Label>
+            <Label color={themeContext.primary} fontSize={32}>Nível</Label>
           <Button
             backgroundColor={size === 3 ? themeContext.primary : themeContext.disable}
             onPress={() => handleNewGame(3)}>

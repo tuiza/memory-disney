@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 import AnimatedLottieView from 'lottie-react-native';
-import Label from "../../components/Label";
 import colors from "../../utils/colors";
 
 

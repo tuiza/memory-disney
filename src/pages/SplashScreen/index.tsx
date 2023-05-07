@@ -9,7 +9,6 @@ export default function SplashScreen({ setSplashScreen }: { setSplashScreen: () 
 
     return (
         <S.Container>
-
             <S.Castle
                 source={castle}
                 autoPlay={true}

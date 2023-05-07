@@ -1,6 +1,7 @@
 import styled from 'styled-components/native'
 import { Platform, StatusBar } from "react-native";
 import Toggle from "react-native-toggle-element";
+import AnimatedLottieView from 'lottie-react-native';
 
 export const Container = styled.SafeAreaView`
 	flex: 1;
@@ -24,14 +25,27 @@ export const CardContainer = styled.ScrollView<{ size: number }>`
 `
 
 export const ToggleConatiner = styled.View`
-	position: absolute;
-	left: 40%;
-	top: 15%;
+	margin: 20px 0;
 `
 
 export const Header = styled.View`
-	flex-direction: row;
-	align-items: flex-start;
+	/* flex-direction: row;
+	align-items: center;
+	justify-content: center; */
+`
+
+export const EvilThumb = styled(AnimatedLottieView)`
+	height: 60px;
+	width: 60px;
+	position: absolute;
+	top: -20px;
+`
+
+export const RoyalThumb = styled(AnimatedLottieView)`
+	height: 38px;
+	width: 38px;
+	position: absolute;
+	top: -12px;
 `
 
 export const ToggleButton = styled(Toggle)`
@@ -45,6 +59,6 @@ export const FooterContainer = styled.View`
 `
 
 export const Logo = styled.Image`
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 `

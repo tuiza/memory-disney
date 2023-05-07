@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Image } from 'react-native';
 
 import Label from '../../components/Label'
 
@@ -13,6 +14,8 @@ import tuizaPreto from './logoPreto.png'
 import tuizaBranco from './logoBranco.png'
 import { themeState } from '../../atoms/gameState';
 import { ThemeContext } from 'styled-components';
+import evil from './evil.json'
+import royal from './royal.json'
 
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 
@@ -58,7 +61,7 @@ export default function Board() {
     const [timer, setTimerState] = useRecoilState(timerState)
     const [imagesCards, setImagesCards] = useState<ImagesCards>([]);
     const [timerInterval, setTimerInterval] = useState<NodeJS.Timer>(null as any);
-    const [, setTheme] = useRecoilState(themeState) // usar no toogle
+    const [, setTheme] = useRecoilState(themeState)
 
     const size = useRecoilValue(sizeState);
     const themeContext = useContext(ThemeContext);
@@ -171,46 +174,51 @@ export default function Board() {
     return (
         <S.Container>
             <S.Header>
-                <Label color={themeContext.primary} fontSize={40}>{toggleValue ? 'Evil' : 'Royal'}</Label>
-                <S.ToggleConatiner>
-                    <S.ToggleButton
-                        value={toggleValue}
-                        onPress={() => onHandleToggle()}
-                        thumbInActiveComponent={
-                            <FontAwesome5 name="crown" size={25} color={themeContext.primary} />
-                        }
-                        thumbActiveComponent={
-                            <MaterialCommunityIcons name="emoticon-devil" size={32} color={themeContext.primary} />
-                        }
-                        thumbButton={{
-                            width: 35,
-                            height: 35,
-                            radius: 30,
-                            
-                            activeBackgroundColor: themeContext.disable,
-                            inActiveBackgroundColor: themeContext.disable,
-                        }}
-                        trackBar={{
-                            activeBackgroundColor: themeContext.secondary,
-                            inActiveBackgroundColor: themeContext.secondary,
-                            borderActiveColor: themeContext.secondary,
-                            borderInActiveColor: themeContext.primary,
-                            borderWidth: 0,
-                            width: 65,
-                            height: 20,
+                {/* <Label color={themeContext.primary} fontSize={40}>{toggleValue ? 'Evil' : 'Royal'}</Label> */}
+                
+            </S.Header>
+            
+            <S.ToggleConatiner>
+                <S.ToggleButton
+                    value={toggleValue}
+                    onPress={() => onHandleToggle()}
+                    thumbInActiveComponent={
+                        <S.RoyalThumb
+                            source={royal}
+                            autoPlay={true}
+                            loop={false}
+                        />
+                    }
+                    thumbActiveComponent={
+                        <S.EvilThumb
+                            source={evil}
+                            autoPlay={true}
+                            loop={false}
+                        />
+                    }
+                    thumbButton={{
+                        width: 0,
+                        height: 0,
+                        radius: 0,
+                        activeBackgroundColor: themeContext.disable,
+                        inActiveBackgroundColor: themeContext.disable,
+                    }}
+                    trackBar={{
+                        activeBackgroundColor: themeContext.background,
+                        inActiveBackgroundColor: themeContext.background,
+                        borderActiveColor: themeContext.primary,
+                        borderInActiveColor: themeContext.secondary,
+                        borderWidth: 2,
+                        width: 67,
+                        height: 15,
 
-                        }}
-                    />
-                </S.ToggleConatiner>
-                </S.Header>
-            <S.ButtonsContainer>
-                <Button backgroundColor={themeContext.secondary} onPress={() => onHandleRestart()}>
-                    <Label color={themeContext.primary}>Restart</Label>
-                </Button>
-                <Button backgroundColor={themeContext.primary} onPress={() => onHandleNewModal()}>
-                    <Label color={themeContext.secondary}>New</Label>
-                </Button>
-            </S.ButtonsContainer>
+                    }}
+                />
+            </S.ToggleConatiner>
+            <S.FooterContainer>
+                <Label color={themeContext.footer} >Tempo: {timer}</Label>
+                <Label color={themeContext.footer} >Movimentos: {moves}</Label>
+            </S.FooterContainer>
             <NewModal open={newModal} onClosed={() => setNewModal(false)} />
             <VitoryModal
                 open={victoryModal}
@@ -247,11 +255,16 @@ export default function Board() {
                     ))
                 }
             </S.CardContainer>
+            <S.ButtonsContainer>
+                <Button backgroundColor={themeContext.secondary} onPress={() => onHandleRestart()}>
+                    <Label color={themeContext.primary}>Reiniciar</Label>
+                </Button>
+                <Button backgroundColor={themeContext.primary} onPress={() => onHandleNewModal()}>
+                    <Label color={themeContext.secondary}>Novo</Label>
+                </Button>
+            </S.ButtonsContainer>
 
-            <S.FooterContainer>
-                <Label color={themeContext.footer} >Time: {timer}</Label>
-                <Label color={themeContext.footer} >Moves: {moves}</Label>
-            </S.FooterContainer>
+            
             <S.Logo
                 source={toggleValue ? tuizaBranco : tuizaPreto}
             />

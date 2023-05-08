@@ -1,56 +1,26 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Image } from 'react-native';
 
 import Label from '../../components/Label'
 
 import * as S from './styles'
-import MemoryCard, { PRINCESS_ENUM } from '../../components/MemoryCard';
+import MemoryCard from '../../components/MemoryCard';
 import Button from '../../components/Button';
 import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
 import { sizeState, victoriesState, movesState, timerState } from '../../../src/atoms/gameState';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import tuizaPreto from './logoPreto.png'
-import tuizaBranco from './logoBranco.png'
+import { logoBranca, logoPreta } from '../../../src/imgs';
 import { themeState } from '../../atoms/gameState';
 import { ThemeContext } from 'styled-components';
-import evil from './evil.json'
-import royal from './royal.json'
-
-import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
+import { PRINCESS, VILLAINS } from '../../utils/enuns/Characters';
+import {evil, royal} from '../../animations'
 
 type ImagesCards = {
-    princess: keyof typeof PRINCESS_ENUM
+    princess: keyof typeof PRINCESS | keyof typeof VILLAINS
     selected: boolean
     visible: boolean
 }[]
 
-const imagesBySize = {
-    3: [
-        PRINCESS_ENUM.bela,
-        PRINCESS_ENUM.mulan,
-        PRINCESS_ENUM.ariel,
-    ],
-    6: [
-        PRINCESS_ENUM.bela,
-        PRINCESS_ENUM.mulan,
-        PRINCESS_ENUM.ariel,
-        PRINCESS_ENUM.adormecida,
-        PRINCESS_ENUM.merida,
-        PRINCESS_ENUM.tina,
-    ],
-    9: [
-        PRINCESS_ENUM.bela,
-        PRINCESS_ENUM.mulan,
-        PRINCESS_ENUM.ariel,
-        PRINCESS_ENUM.adormecida,
-        PRINCESS_ENUM.merida,
-        PRINCESS_ENUM.tina,
-        PRINCESS_ENUM.branca,
-        PRINCESS_ENUM.cinderela,
-        PRINCESS_ENUM.sin,
-    ],
-}
 
 export default function Board() {
     const [toggleValue, setToggleValue] = useState(false);
@@ -62,6 +32,62 @@ export default function Board() {
     const [imagesCards, setImagesCards] = useState<ImagesCards>([]);
     const [timerInterval, setTimerInterval] = useState<NodeJS.Timer>(null as any);
     const [, setTheme] = useRecoilState(themeState)
+
+    const princessBySize = {
+        3: [
+            PRINCESS.bela,
+            PRINCESS.cinderela,
+            PRINCESS.branca,
+        ],
+        6: [
+            PRINCESS.bela,
+            PRINCESS.mulan,
+            PRINCESS.sin,
+            PRINCESS.adormecida,
+            PRINCESS.merida,
+            PRINCESS.tina,
+        ],
+        9: [
+            PRINCESS.bela,
+            PRINCESS.mulan,
+            PRINCESS.ariel,
+            PRINCESS.adormecida,
+            PRINCESS.merida,
+            PRINCESS.tina,
+            PRINCESS.branca,
+            PRINCESS.cinderela,
+            PRINCESS.sin,
+        ],
+    }
+
+    const villainsBySize = {
+        3: [
+            VILLAINS.malevola,
+            VILLAINS.cruella,
+            VILLAINS.rainhaMa,
+        ],
+        6: [
+            VILLAINS.malevola,
+            VILLAINS.cruella,
+            VILLAINS.rainhaMa,
+            VILLAINS.ladyTremaine,
+            VILLAINS.yzma,
+            VILLAINS.madameMedusa,
+        ],
+        9: [
+            VILLAINS.malevola,
+            VILLAINS.cruella,
+            VILLAINS.rainhaMa,
+            VILLAINS.ladyTremaine,
+            VILLAINS.yzma,
+            VILLAINS.madameMedusa,
+            VILLAINS.rainhaDeCopas,
+            VILLAINS.madameMim,
+            VILLAINS.maeGothel,
+        ],
+    }
+
+    const imagesBySize = toggleValue ? villainsBySize : princessBySize
 
     const size = useRecoilValue(sizeState);
     const themeContext = useContext(ThemeContext);
@@ -169,15 +195,15 @@ export default function Board() {
 
     useEffect(() => {
         onHandleRestart()
-    }, [size, victories])
+    }, [size, victories, toggleValue])
 
     return (
         <S.Container>
             <S.Header>
                 {/* <Label color={themeContext.primary} fontSize={40}>{toggleValue ? 'Evil' : 'Royal'}</Label> */}
-                
+
             </S.Header>
-            
+
             <S.ToggleConatiner>
                 <S.ToggleButton
                     value={toggleValue}
@@ -247,7 +273,7 @@ export default function Board() {
                     imagesCards.map((item, index) => (
                         <MemoryCard
                             key={index}
-                            princess={item.princess}
+                            characters={item.princess}
                             selected={item.selected}
                             visible={item.visible}
                             onFlip={() => handleCardPress(index)}
@@ -264,9 +290,9 @@ export default function Board() {
                 </Button>
             </S.ButtonsContainer>
 
-            
+
             <S.Logo
-                source={toggleValue ? tuizaBranco : tuizaPreto}
+                source={toggleValue ? logoBranca : logoPreta}
             />
 
         </S.Container >

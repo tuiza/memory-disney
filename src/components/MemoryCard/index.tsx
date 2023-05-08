@@ -1,14 +1,6 @@
 import React from 'react'
 import { ImageSourcePropType, PressableProps } from 'react-native'
-import bela from '../../imgs/bela.png'
-import adormecida from '../../imgs/adormecida.png'
-import sin from '../../imgs/sin.png'
-import mulan from '../../imgs/mulan.png'
-import ariel from '../../imgs/ariel.png'
-import merida from '../../imgs/merida.png'
-import branca from '../../imgs/branca.png'
-import cinderela from '../../imgs/cinderela.png'
-import tina from '../../imgs/tina.png'
+import * as charactersImgs from '../../imgs/index'
 import * as S from './styles'
 import {
     useSharedValue,
@@ -17,38 +9,22 @@ import {
     withTiming
 } from 'react-native-reanimated';
 
-export enum PRINCESS_ENUM {
-    bela = 'bela',
-    adormecida = 'adormecida',
-    sin = 'sin',
-    mulan = 'mulan',
-    ariel = 'ariel',
-    merida = 'merida',
-    branca = 'branca',
-    cinderela = 'cinderela',
-    tina = 'tina'
-}
+import { PRINCESS,  VILLAINS} from '../../utils/enuns/Characters'
+import { charactersColors } from '../../utils/enuns/CharactersColors';
 
-const PRINCESS: { [k: string]: ImageSourcePropType } = {
-    bela,
-    adormecida,
-    mulan,
-    sin,
-    ariel,
-    merida,
-    branca,
-    cinderela,
-    tina
+
+const CHARACTERS: { [k: string]: ImageSourcePropType } = {
+    ...charactersImgs
 }
 
 type MemoryCardProps = {
-    princess: keyof typeof PRINCESS_ENUM
+    characters: keyof typeof PRINCESS | keyof typeof VILLAINS,
     visible: boolean,
     selected: boolean,
     onFlip: () => void
 } & PressableProps
 
-export default function ({ princess, visible, selected, onFlip, ...rest }: MemoryCardProps) {
+export default function ({ characters, visible, selected, onFlip, ...rest }: MemoryCardProps) {
     const rotateY = useSharedValue(0)
     const rotateYa = useSharedValue(0)
 
@@ -78,17 +54,31 @@ export default function ({ princess, visible, selected, onFlip, ...rest }: Memor
         rotateY.value = withTiming(newValue, { duration: 300 });
         rotateYa.value = withTiming(newValuea, { duration: 2000 });
     }
+
     return (
-        <S.Container visible={visible} selected={selected} onPress={onHandleCard} {...rest} >
+        <S.Container
+
+            onPress={onHandleCard}
+            {...rest} >
             {selected ? (
-                <S.Avatar style={backAnimatedStyle} source={PRINCESS[princess]} />
+                <S.Avatar
+                    resizeMode={'contain'}
+                    style={backAnimatedStyle}
+                    source={CHARACTERS[characters]}
+                    colors={charactersColors[characters]}
+                />
             ) : (
-                <S.FrontCard style={frontAnimatedStyle} />
+                    <S.FrontCard
+                        style={frontAnimatedStyle}
+                    />
             )
             }
             {visible && (
                 <S.Avatar
-                source={PRINCESS[princess]} />
+                    resizeMode={'contain'}
+                    colors={charactersColors[characters]}
+                    source={CHARACTERS[characters]}
+                />
             )}
         </S.Container>
     )

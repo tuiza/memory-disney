@@ -6,7 +6,7 @@ import * as S from './styles'
 import { useRecoilValue } from 'recoil';
 import { movesState, timerState } from '../../../atoms/gameState';
 import LottieView from 'lottie-react-native';
-import winner from './winner.json';
+import {winner} from '../../../animations'
 import { View } from 'react-native';
 import { ThemeContext } from 'styled-components'
 

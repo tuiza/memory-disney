@@ -76,6 +76,7 @@ export default function ({ characters, visible, selected, onFlip, ...rest }: Mem
             {visible && (
                 <S.Avatar
                     resizeMode={'contain'}
+                    style={backAnimatedStyle}
                     colors={charactersColors[characters]}
                     source={CHARACTERS[characters]}
                 />

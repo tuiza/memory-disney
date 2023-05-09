@@ -7,13 +7,12 @@ import MemoryCard from '../../components/MemoryCard';
 import Button from '../../components/Button';
 import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
-import { sizeState, victoriesState, movesState, timerState } from '../../../src/atoms/gameState';
+import { sizeState, victoriesState, movesState, timerState, themeState } from '../../../src/atoms/gameState';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { logoBranca, logoPreta } from '../../../src/imgs';
-import { themeState } from '../../atoms/gameState';
 import { ThemeContext } from 'styled-components';
 import { PRINCESS, VILLAINS } from '../../utils/enuns/Characters';
-import {evil, royal} from '../../animations'
+import Toggle from '../../components/Toggle';
 
 type ImagesCards = {
     princess: keyof typeof PRINCESS | keyof typeof VILLAINS
@@ -23,7 +22,6 @@ type ImagesCards = {
 
 
 export default function Board() {
-    const [toggleValue, setToggleValue] = useState(false);
     const [newModal, setNewModal] = useState(false);
     const [victoryModal, setVictoryModal] = useState(false);
     const [victories, setVictories] = useRecoilState(victoriesState)
@@ -31,7 +29,8 @@ export default function Board() {
     const [timer, setTimerState] = useRecoilState(timerState)
     const [imagesCards, setImagesCards] = useState<ImagesCards>([]);
     const [timerInterval, setTimerInterval] = useState<NodeJS.Timer>(null as any);
-    const [, setTheme] = useRecoilState(themeState)
+    const [theme] = useRecoilState(themeState)
+    const toggleValue = theme === 'light' ? false : true;
 
     const princessBySize = {
         3: [
@@ -71,7 +70,7 @@ export default function Board() {
             VILLAINS.cruella,
             VILLAINS.rainhaMa,
             VILLAINS.ladyTremaine,
-            VILLAINS.yzma,
+            VILLAINS.maeGothel,
             VILLAINS.madameMedusa,
         ],
         9: [
@@ -91,11 +90,6 @@ export default function Board() {
 
     const size = useRecoilValue(sizeState);
     const themeContext = useContext(ThemeContext);
-
-    const onHandleToggle = () => {
-        setToggleValue(!toggleValue)
-        setTheme(toggleValue ? "light" : 'dark')
-    }
 
     const onHandleNewModal = () => {
         setNewModal(true)
@@ -199,48 +193,7 @@ export default function Board() {
 
     return (
         <S.Container>
-            <S.Header>
-                {/* <Label color={themeContext.primary} fontSize={40}>{toggleValue ? 'Evil' : 'Royal'}</Label> */}
-
-            </S.Header>
-
-            <S.ToggleConatiner>
-                <S.ToggleButton
-                    value={toggleValue}
-                    onPress={() => onHandleToggle()}
-                    thumbInActiveComponent={
-                        <S.RoyalThumb
-                            source={royal}
-                            autoPlay={true}
-                            loop={false}
-                        />
-                    }
-                    thumbActiveComponent={
-                        <S.EvilThumb
-                            source={evil}
-                            autoPlay={true}
-                            loop={false}
-                        />
-                    }
-                    thumbButton={{
-                        width: 0,
-                        height: 0,
-                        radius: 0,
-                        activeBackgroundColor: themeContext.disable,
-                        inActiveBackgroundColor: themeContext.disable,
-                    }}
-                    trackBar={{
-                        activeBackgroundColor: themeContext.background,
-                        inActiveBackgroundColor: themeContext.background,
-                        borderActiveColor: themeContext.primary,
-                        borderInActiveColor: themeContext.secondary,
-                        borderWidth: 2,
-                        width: 67,
-                        height: 15,
-
-                    }}
-                />
-            </S.ToggleConatiner>
+            <Toggle/>
             <S.FooterContainer>
                 <Label color={themeContext.footer} >Tempo: {timer}</Label>
                 <Label color={themeContext.footer} >Movimentos: {moves}</Label>

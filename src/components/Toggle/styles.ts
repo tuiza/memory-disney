@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import AnimatedLottieView from 'lottie-react-native';
 
 export const ToggleConatiner = styled.View`
-	margin: 20px 0;
+	margin: 30px 0;
 `
 
 export const EvilThumb = styled(AnimatedLottieView)`

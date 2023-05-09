@@ -5,6 +5,12 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+     "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#E4CBCB",
+      "image": "./assets/icon.png"
+
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -18,7 +24,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#E4CBCB"
       },
       "package": "com.luiza_marlene.memoriadisney"
     },

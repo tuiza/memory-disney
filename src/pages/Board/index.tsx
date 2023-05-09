@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import Label from '../../components/Label'
 
 import * as S from './styles'
-import MemoryCard from '../../components/MemoryCard';
 import Button from '../../components/Button';
 import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
@@ -13,13 +12,8 @@ import { logoBranca, logoPreta } from '../../../src/imgs';
 import { ThemeContext } from 'styled-components';
 import { PRINCESS, VILLAINS } from '../../utils/enuns/Characters';
 import Toggle from '../../components/Toggle';
-
-type ImagesCards = {
-    princess: keyof typeof PRINCESS | keyof typeof VILLAINS
-    selected: boolean
-    visible: boolean
-}[]
-
+import { ImagesCards } from 'utils/enuns/types/ImagesCards';
+import Cards from './Cards';
 
 export default function Board() {
     const [newModal, setNewModal] = useState(false);
@@ -195,8 +189,8 @@ export default function Board() {
         <S.Container>
             <Toggle/>
             <S.FooterContainer>
-                <Label color={themeContext.footer} >Tempo: {timer}</Label>
-                <Label color={themeContext.footer} >Movimentos: {moves}</Label>
+                <Label color={themeContext.infos} >Tempo: {timer}</Label>
+                <Label color={themeContext.infos} >Movimentos: {moves}</Label>
             </S.FooterContainer>
             <NewModal open={newModal} onClosed={() => setNewModal(false)} />
             <VitoryModal
@@ -205,49 +199,27 @@ export default function Board() {
                     setVictoryModal(false)
                     onHandleRestart()
                 }}
-                setNewModal={() => onHandleNewModal()} />
-
-            <S.CardContainer
-                showsVerticalScrollIndicator={true}
+                setNewModal={onHandleNewModal} />
+            <Cards
+                handleCardPress={handleCardPress}
+                imagesCards={imagesCards}
                 size={size}
-                centerContent={true}
-                contentContainerStyle={{
-                    flexGrow: 1,
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: '100%',
-                    alignContent: 'center',
-                    padding: 5,
-                }}
-            >
-                {
-                    imagesCards.map((item, index) => (
-                        <MemoryCard
-                            key={index}
-                            characters={item.princess}
-                            selected={item.selected}
-                            visible={item.visible}
-                            onFlip={() => handleCardPress(index)}
-                        />
-                    ))
-                }
-            </S.CardContainer>
-            <S.ButtonsContainer>
-                <Button backgroundColor={themeContext.secondary} onPress={() => onHandleRestart()}>
-                    <Label color={themeContext.primary}>Reiniciar</Label>
-                </Button>
-                <Button backgroundColor={themeContext.primary} onPress={() => onHandleNewModal()}>
-                    <Label color={themeContext.secondary}>Novo</Label>
-                </Button>
-            </S.ButtonsContainer>
-
-
-            <S.Logo
-                source={toggleValue ? logoBranca : logoPreta}
             />
-
+            <S.ButtonsContainer>
+                <Button
+                    backgroundColor={themeContext.secondary}
+                    textColor={themeContext.primary}
+                    onPress={onHandleRestart}
+                    text={'Reiniciar'}
+                />
+                <Button
+                    backgroundColor={themeContext.primary}
+                    onPress={onHandleNewModal}
+                    text={'Novo'}
+                    textColor={themeContext.disable}
+                />
+            </S.ButtonsContainer>
+            <S.Logo source={toggleValue ? logoBranca : logoPreta}/>
         </S.Container >
     )
 }

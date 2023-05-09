@@ -3,11 +3,10 @@ import Button from '../../../components/Button';
 import Label from '../../../components/Label';
 import { Modal } from '../../../components/Modal';
 import * as S from './styles'
-import { useRecoilValue } from 'recoil';
-import { movesState, timerState } from '../../../atoms/gameState';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { movesState, timerState, themeState } from '../../../atoms/gameState';
 import LottieView from 'lottie-react-native';
-import {winner} from '../../../animations'
-import { View } from 'react-native';
+import {bad, happy, winner } from '../../../animations'
 import { ThemeContext } from 'styled-components'
 
 type NewModalProps = {
@@ -19,40 +18,53 @@ type NewModalProps = {
 export default function VitoryModal({ open, onClosed, setNewModal }: NewModalProps) {
   const moves = useRecoilValue(movesState);
   const timer = useRecoilValue(timerState);
-  const theme = useContext(ThemeContext)
+  const themeContext = useContext(ThemeContext)
+  const [theme] = useRecoilState(themeState)
+  
+  const topAnimation = theme === 'light' ? happy : bad
 
   return (
     <Modal open={open} onClosed={onClosed}>
       <S.Container>
-
-        <Label color={theme.primary} fontSize={40} style={{ borderBottomColor: theme.primary }}>Vitória</Label>
-        <View style={{flexDirection: 'row'}}>
-          <LottieView
-            autoPlay
-            loop={false}
-            style={{ width: 200, height: 300, flex: 1 }}
-            source={winner}
-          />
+        <LottieView
+          autoPlay
+          loop={true}
+          style={{ width: 100, height: 300, position: 'absolute', bottom: 50, left: 0, zIndex: -1 }}
+          source={topAnimation}
+        />
+        <Label
+          color={themeContext.title}
+          fontSize={40}
+          style={{ borderBottomColor: themeContext.primary }}>
+          Vitória
+        </Label>
+        <S.Body>
           <S.InfosContainer>
-            <Label color={theme.footer}>Tempo: {timer}</Label>
-            <Label color={theme.footer}>Movimentos: {moves}</Label>
-          </S.InfosContainer>
+            <Label color={themeContext.infos} fontSize={24}>Tempo: {timer}</Label>
+            <Label color={themeContext.infos} fontSize={24}>Movimentos: {moves}</Label>
           <LottieView
-            loop={false}
-            autoPlay
-            style={{ width: 200, height: 300, flex: 1 }}
-            source={winner}
+              autoPlay
+              loop={false}
+              duration={4000}
+            style={{ width: 200, height: 200, position: 'absolute', top: -40, left: 80, zIndex: -1 }}
+              source={winner}
           />
-        </View>
+          </S.InfosContainer>
+        </S.Body>
         <S.ButtonsContainer>
-          <Button backgroundColor={theme.secondary} onPress={onClosed}>
-            <Label color={theme.primary}>Reiniciar</Label>
-          </Button>
-          <Button backgroundColor={theme.primary} onPress={setNewModal}>
-            <Label color={theme.secondary}>Outro Tamanho</Label>
-          </Button>
+          <Button
+            backgroundColor={themeContext.secondary}
+            onPress={onClosed}
+            text={'Reiniciar'}
+            textColor={themeContext.primary}
+          />
+          <Button
+            backgroundColor={themeContext.primary}
+            onPress={setNewModal}
+            text={'Outro Tamanho'}
+            textColor={themeContext.secondary}
+          />
         </S.ButtonsContainer>
-        
       </S.Container>
     </Modal>)
 }

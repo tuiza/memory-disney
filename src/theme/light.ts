@@ -2,6 +2,7 @@ export default {
     background: '#FFFFFF',
     primary: '#75728D',
     secondary: '#E4CBCB',
-    footer: '#75728D',
-    disable: "#F1F1F1",
+    infos: '#75728D',
+    disable: "#E4CBCB",
+    title: '#75728D',
 }

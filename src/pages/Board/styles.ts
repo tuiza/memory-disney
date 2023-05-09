@@ -22,8 +22,6 @@ export const CardContainer = styled.ScrollView<{ size: number }>`
 	align-content: center;
 `
 
-
-
 export const FooterContainer = styled.View`
 	flex-direction: row;
 	justify-content: space-around;
@@ -32,6 +30,6 @@ export const FooterContainer = styled.View`
 `
 
 export const Logo = styled.Image`
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
 `

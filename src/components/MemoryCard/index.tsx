@@ -57,9 +57,9 @@ export default function ({ characters, visible, selected, onFlip, ...rest }: Mem
 
     return (
         <S.Container
-
             onPress={onHandleCard}
-            {...rest} >
+            {...rest}
+        >
             {selected ? (
                 <S.Avatar
                     resizeMode={'contain'}
@@ -68,9 +68,7 @@ export default function ({ characters, visible, selected, onFlip, ...rest }: Mem
                     colors={charactersColors[characters]}
                 />
             ) : (
-                    <S.FrontCard
-                        style={frontAnimatedStyle}
-                    />
+                    <S.FrontCard style={frontAnimatedStyle}/>
             )
             }
             {visible && (

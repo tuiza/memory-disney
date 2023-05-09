@@ -15,7 +15,7 @@ type NewModalProps = {
 export default function NewModal({ open, onClosed }: NewModalProps) {
   const [size, setSize] = useRecoilState(sizeState);
   const [defeated, setDefeated] = useRecoilState(defeatsState);
-  const themeContext = useContext(ThemeContext)
+  const theme = useContext(ThemeContext)
 
   const handleNewGame = (size: 3 | 6 | 9) => { 
     setSize(size);
@@ -24,25 +24,36 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
 
   }
 
+  const getBackgroundColor = (actualSize: 3 | 6 | 9): string => {
+    return actualSize === size ? theme.primary : theme.disable
+  }
+
+  const difficulty = ['Fácil', 'Médio', 'Difícil']
+  const sizes: [3 , 6 , 9] = [3, 6, 9]
+
+  const Buttons = () => {
+    const buttons = []
+    for (let i = 1; i < 4; i++) {
+      const size = sizes[i - 1]
+      const textColor = (getBackgroundColor(size) === theme.primary) ? theme.secondary : theme.primary
+      buttons.push(
+        <Button
+          key={i}
+          backgroundColor={getBackgroundColor(size)}
+          onPress={() => handleNewGame(size)}
+          text={difficulty[i - 1]}
+          textColor={textColor}
+        />
+      )
+    }
+    return buttons
+  }
+
     return (
       <Modal open={open} onClosed={onClosed} > 
             <S.Container>
-            <Label color={themeContext.primary} fontSize={32}>Nível</Label>
-          <Button
-            backgroundColor={size === 3 ? themeContext.primary : themeContext.disable}
-            onPress={() => handleNewGame(3)}>
-            <Label color={size === 3 ? themeContext.disable : themeContext.primary}>Fácil</Label>
-        </Button>
-          <Button
-            backgroundColor={size === 6 ? themeContext.primary : themeContext.disable}
-            onPress={() => handleNewGame(6)}>
-            <Label color={size === 6 ? themeContext.disable : themeContext.primary}>Médio</Label>
-        </Button>
-          <Button backgroundColor={size === 9 ? themeContext.primary : themeContext.disable}
-            onPress={() => handleNewGame(9)}>
-            <Label color={size === 9 ? themeContext.disable : themeContext.primary}>Díficil</Label>
-      </Button>
-        
+          <Label color={theme.title} fontSize={32}>Nível</Label>
+          {Buttons()}
     </S.Container>
       </Modal>)
 }

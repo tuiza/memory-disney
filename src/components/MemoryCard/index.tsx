@@ -9,7 +9,7 @@ import {
     withTiming
 } from 'react-native-reanimated';
 
-import { PRINCESS,  VILLAINS} from '../../utils/enuns/Characters'
+import { PRINCESS, VILLAINS } from '../../utils/enuns/Characters'
 import { charactersColors } from '../../utils/enuns/CharactersColors';
 
 
@@ -26,17 +26,15 @@ type MemoryCardProps = {
 
 export default function ({ characters, visible, selected, onFlip, ...rest }: MemoryCardProps) {
     const rotateY = useSharedValue(0)
-    const rotateYa = useSharedValue(0)
 
     const frontAnimatedStyle = useAnimatedStyle(() => {
         return {
             transform: [{
                 rotateY:
-                    `${interpolate(rotateYa.value, [1, 0], [0, -180])}deg`
+                    `${interpolate(rotateY.value, [1, 0], [0, 180])}deg`
             }]
         }
     })
-
 
     const backAnimatedStyle = useAnimatedStyle(() => {
         return {
@@ -50,31 +48,27 @@ export default function ({ characters, visible, selected, onFlip, ...rest }: Mem
     const onHandleCard = async () => {
         onFlip()
         const newValue = rotateY.value === 0 ? 1 : 0;
-        const newValuea = rotateYa.value === 0 ? 1 : 0;
         rotateY.value = withTiming(newValue, { duration: 300 });
-        rotateYa.value = withTiming(newValuea, { duration: 2000 });
     }
 
     return (
-        <S.Container
-            onPress={onHandleCard}
-            {...rest}
-        >
-            {selected ? (
+        <S.Container onPress={onHandleCard} {...rest}>
+            {selected
+                ? (
                 <S.Avatar
                     resizeMode={'contain'}
                     style={backAnimatedStyle}
                     source={CHARACTERS[characters]}
                     colors={charactersColors[characters]}
                 />
+                
             ) : (
-                    <S.FrontCard style={frontAnimatedStyle}/>
+                <S.FrontCard style={frontAnimatedStyle}/>
             )
             }
             {visible && (
                 <S.Avatar
                     resizeMode={'contain'}
-                    style={backAnimatedStyle}
                     colors={charactersColors[characters]}
                     source={CHARACTERS[characters]}
                 />

@@ -1,10 +1,6 @@
-import styled, { css } from 'styled-components/native'
+import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 
-type AvatarProps = {
-    visible: boolean
-    selected: boolean
-}
 
 export const Container = styled.Pressable`
     width: 100px;

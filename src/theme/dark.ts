@@ -1,10 +1,10 @@
 const dark = {
     background: "#202020",
     primary: "#781414",
-    secondary: "#f9eac3",
-    infos: "#f9eac3",
-    disable: "#f5f5f5",
-    title: '#f9eac3',
+    secondary: "rgba(249, 234, 195, 0.8)",
+    infos: "rgba(249, 234, 195, 1)",
+    disable: "rgba(249, 234, 195, 0.8)",
+    title: 'rgba(249, 234, 195, 1)',
 }
 
 export default dark

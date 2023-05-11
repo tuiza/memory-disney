@@ -11,6 +11,8 @@ export const InfosContainer = styled.View`
 	justify-self: flex-end;
 	margin-left: 10px;
 	width: 80%;
+	height: 100px;
+	justify-content: space-around;
 `
 
 export const ButtonsContainer = styled.View`

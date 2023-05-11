@@ -3,8 +3,12 @@ import Button from '../../../components/Button';
 import Label from '../../../components/Label';
 import { Modal } from '../../../components/Modal';
 import * as S from './styles'
-import { useRecoilState } from 'recoil';
-import { sizeState, defeatsState } from '../../../../src/atoms/gameState'
+import { bad, happy } from '../../../animations'
+import { sizeState, defeatsState, themeState } from '../../../../src/atoms/gameState'
+import { useRecoilState, useRecoilValue } from 'recoil';
+import LottieView from 'lottie-react-native';
+
+
 import { ThemeContext } from 'styled-components'
 
 type NewModalProps = {
@@ -15,7 +19,9 @@ type NewModalProps = {
 export default function NewModal({ open, onClosed }: NewModalProps) {
   const [size, setSize] = useRecoilState(sizeState);
   const [defeated, setDefeated] = useRecoilState(defeatsState);
-  const theme = useContext(ThemeContext)
+  const themeContext = useContext(ThemeContext)
+  const theme = useRecoilValue(themeState)
+  const topAnimation = theme === 'light' ? happy : bad
 
   const handleNewGame = (size: 3 | 6 | 9) => { 
     setSize(size);
@@ -25,7 +31,7 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
   }
 
   const getBackgroundColor = (actualSize: 3 | 6 | 9): string => {
-    return actualSize === size ? theme.primary : theme.disable
+    return actualSize === size ? themeContext.primary : themeContext.disable
   }
 
   const difficulty = ['Fácil', 'Médio', 'Difícil']
@@ -35,7 +41,7 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
     const buttons = []
     for (let i = 1; i < 4; i++) {
       const size = sizes[i - 1]
-      const textColor = (getBackgroundColor(size) === theme.primary) ? theme.secondary : theme.primary
+      const textColor = (getBackgroundColor(size) === themeContext.primary) ? themeContext.secondary : themeContext.primary
       buttons.push(
         <Button
           key={i}
@@ -51,9 +57,15 @@ export default function NewModal({ open, onClosed }: NewModalProps) {
 
     return (
       <Modal open={open} onClosed={onClosed} > 
-            <S.Container>
-          <Label color={theme.title} fontSize={32}>Nível</Label>
+        <S.Container>
+          <Label color={themeContext.title} fontSize={32}>Nível</Label>
+          <LottieView
+            autoPlay
+            loop={true}
+            style={{ width: 100, height: 300, position: 'absolute', bottom: 50, left: 0, zIndex: -1 }}
+            source={topAnimation}
+          />
           {Buttons()}
-    </S.Container>
+        </S.Container>
       </Modal>)
 }

@@ -3,10 +3,10 @@ import Button from '../../../components/Button';
 import Label from '../../../components/Label';
 import { Modal } from '../../../components/Modal';
 import * as S from './styles'
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { movesState, timerState, themeState } from '../../../atoms/gameState';
+import { useRecoilValue } from 'recoil';
+import { movesState, timerState} from '../../../atoms/gameState';
 import LottieView from 'lottie-react-native';
-import {bad, happy, winner } from '../../../animations'
+import { winner } from '../../../animations'
 import { ThemeContext } from 'styled-components'
 
 type NewModalProps = {
@@ -19,19 +19,10 @@ export default function VitoryModal({ open, onClosed, setNewModal }: NewModalPro
   const moves = useRecoilValue(movesState);
   const timer = useRecoilValue(timerState);
   const themeContext = useContext(ThemeContext)
-  const [theme] = useRecoilState(themeState)
-  
-  const topAnimation = theme === 'light' ? happy : bad
 
   return (
     <Modal open={open} onClosed={onClosed}>
       <S.Container>
-        <LottieView
-          autoPlay
-          loop={true}
-          style={{ width: 100, height: 300, position: 'absolute', bottom: 50, left: 0, zIndex: -1 }}
-          source={topAnimation}
-        />
         <Label
           color={themeContext.title}
           fontSize={40}
@@ -44,9 +35,9 @@ export default function VitoryModal({ open, onClosed, setNewModal }: NewModalPro
             <Label color={themeContext.infos} fontSize={24}>Movimentos: {moves}</Label>
           <LottieView
               autoPlay
-              loop={false}
+              loop={true}
               duration={4000}
-            style={{ width: 200, height: 200, position: 'absolute', top: -40, left: 80, zIndex: -1 }}
+            style={{ width: 200, height: 200, position: 'absolute', top: -35, left: 80, zIndex: -1 }}
               source={winner}
           />
           </S.InfosContainer>
@@ -61,7 +52,7 @@ export default function VitoryModal({ open, onClosed, setNewModal }: NewModalPro
           <Button
             backgroundColor={themeContext.primary}
             onPress={setNewModal}
-            text={'Outro Tamanho'}
+            text={'Outro Nível'}
             textColor={themeContext.secondary}
           />
         </S.ButtonsContainer>

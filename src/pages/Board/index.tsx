@@ -8,12 +8,12 @@ import NewModal from './NewModal';
 import VitoryModal from './VitoryModal';
 import { sizeState, victoriesState, movesState, timerState, themeState } from '../../../src/atoms/gameState';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { logoBranca, logoPreta } from '../../../src/imgs';
+import { logoBranca, tuizaPreta } from '../../../src/imgs';
 import { ThemeContext } from 'styled-components';
-import { PRINCESS, VILLAINS } from '../../utils/enuns/Characters';
 import Toggle from '../../components/Toggle';
 import { ImagesCards } from 'utils/enuns/types/ImagesCards';
 import Cards from './Cards';
+import { princessBySize, villainsBySize } from './../../utils/imagesBySize';
 
 export default function Board() {
     const [newModal, setNewModal] = useState(false);
@@ -25,60 +25,6 @@ export default function Board() {
     const [timerInterval, setTimerInterval] = useState<NodeJS.Timer>(null as any);
     const [theme] = useRecoilState(themeState)
     const toggleValue = theme === 'light' ? false : true;
-
-    const princessBySize = {
-        3: [
-            PRINCESS.bela,
-            PRINCESS.cinderela,
-            PRINCESS.branca,
-        ],
-        6: [
-            PRINCESS.bela,
-            PRINCESS.mulan,
-            PRINCESS.sin,
-            PRINCESS.adormecida,
-            PRINCESS.merida,
-            PRINCESS.tina,
-        ],
-        9: [
-            PRINCESS.bela,
-            PRINCESS.mulan,
-            PRINCESS.ariel,
-            PRINCESS.adormecida,
-            PRINCESS.merida,
-            PRINCESS.tina,
-            PRINCESS.branca,
-            PRINCESS.cinderela,
-            PRINCESS.sin,
-        ],
-    }
-
-    const villainsBySize = {
-        3: [
-            VILLAINS.malevola,
-            VILLAINS.cruella,
-            VILLAINS.rainhaMa,
-        ],
-        6: [
-            VILLAINS.malevola,
-            VILLAINS.cruella,
-            VILLAINS.rainhaMa,
-            VILLAINS.ladyTremaine,
-            VILLAINS.maeGothel,
-            VILLAINS.madameMedusa,
-        ],
-        9: [
-            VILLAINS.malevola,
-            VILLAINS.cruella,
-            VILLAINS.rainhaMa,
-            VILLAINS.ladyTremaine,
-            VILLAINS.yzma,
-            VILLAINS.madameMedusa,
-            VILLAINS.rainhaDeCopas,
-            VILLAINS.madameMim,
-            VILLAINS.maeGothel,
-        ],
-    }
 
     const imagesBySize = toggleValue ? villainsBySize : princessBySize
 
@@ -188,10 +134,10 @@ export default function Board() {
     return (
         <S.Container>
             <Toggle/>
-            <S.FooterContainer>
-                <Label color={themeContext.infos} >Tempo: {timer}</Label>
-                <Label color={themeContext.infos} >Movimentos: {moves}</Label>
-            </S.FooterContainer>
+            <S.InfosContainer>
+                <Label color={themeContext.infos} fontSize={23}>Tempo: {timer}</Label>
+                <Label color={themeContext.infos} fontSize={23} >Movimentos: {moves}</Label>
+            </S.InfosContainer>
             <NewModal open={newModal} onClosed={() => setNewModal(false)} />
             <VitoryModal
                 open={victoryModal}
@@ -219,7 +165,7 @@ export default function Board() {
                     textColor={themeContext.disable}
                 />
             </S.ButtonsContainer>
-            <S.Logo source={toggleValue ? logoBranca : logoPreta}/>
+            <S.Logo source={toggleValue ? logoBranca : tuizaPreta}/>
         </S.Container >
     )
 }

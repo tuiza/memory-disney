@@ -18,6 +18,8 @@ import yzma from './characters/yzma.png';
 import malevola from './characters/malevola.png';
 import logoBranca from './logo/logoBranco.png';
 import logoPreta from './logo/logoPreto.png';
+import tuizaPreta from './logo/tuizaPreto.png';
+
 import rainhaDeCopas from './characters/rainhaDeCopas.png';
 
 export  {
@@ -40,5 +42,6 @@ export  {
     malevola,
     logoBranca,
     logoPreta,
+    tuizaPreta,
     rainhaDeCopas
 }

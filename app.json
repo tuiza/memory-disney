@@ -7,9 +7,8 @@
     "userInterfaceStyle": "light",
      "splash": {
       "resizeMode": "contain",
-      "backgroundColor": "#540969",
-      "image": "./assets/icon.png"
-
+      "backgroundColor": "#D9B5B5",
+      "image": "./assets/splash.png",
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,8 +23,8 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#E4CBCB"
       },
+      
       "package": "com.luiza_marlene.memoriadisney"
     },
     "web": {

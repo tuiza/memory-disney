@@ -1,8 +1,8 @@
 export default {
-    background: '#FFFFFF',
-    primary: '#75728D',
-    secondary: '#E4CBCB',
-    infos: '#75728D',
+    background: '#E6E6E6',
+    primary: '#625F78',
+    secondary: '#D9B5B5',
+    infos: '#625F78',
     disable: "#E4CBCB",
-    title: '#75728D',
+    title: '#625F78',
 }

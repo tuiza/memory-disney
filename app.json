@@ -2,10 +2,10 @@
   "expo": { 
     "name": "Evil Royal",
     "slug": "memoria-disney",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-     "splash": {
+    "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#D9B5B5",
       "image": "./assets/splash.png",
@@ -21,6 +21,7 @@
     },
     "icon": "./assets/icon.png",
     "android": {
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
       },

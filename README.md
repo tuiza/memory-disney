@@ -1,6 +1,6 @@
 
 
-<h1 align="center">Evil Royal</h1>
+<h1 align="center">Evil Royal: Jogo Da Memória</h1>
 
 <div align="center" id="top"> 
   <img src="./assets/evilRoyal.gif" alt="Memoria Disney" title="Demonstracao" />
@@ -11,7 +11,7 @@
 </div>
 
 <p align="center">
-	<a href="https://memoriadisney.netlify.com"> ⬇️ Download na Play Store</a> 
+	<a href="https://play.google.com/store/apps/details?id=com.luiza_marlene.memoriadisney"> ⬇️ Download na Play Store</a> 
 </p>
 
 <!-- Status -->
@@ -29,7 +29,7 @@
   <a href="#white_check_mark-pré-requisitos">Pré requisitos</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-começando">Começando</a> &#xa0; | &#xa0;
   <a href="#memo-licença">Licença</a> &#xa0; | &#xa0;
-  <a href="https://github.com/luizamarlene" target="_blank">Autor</a>
+  <a href="https://github.com/luizamarlene" target="_blank">Autoras</a>
 </p>
 
 <br>
@@ -53,6 +53,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Recoil](https://recoiljs.org/)
+- [Styled Components](https://styled-components.com/)
+- [React Nativer Modalize](https://jeremybarbet.github.io/react-native-modalize/#/)
+- [Expo Font](https://docs.expo.dev/versions/latest/sdk/font/)
 
 ## :white_check_mark: Pré requisitos ##
 
@@ -81,9 +84,13 @@ $ yarn start
 Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 
-Feito com :heart: por <a href="https://github.com/luizamarlene" target="_blank">
-	<img src="./assets/logoLuiza.png" alt="Memoria Disney" title="Demonstracao" />
-</a>
+Feito com :heart: por: 
+
+<a href="https://github.com/luizamarlene" target="_blank">Tuiza</a> |
+<a href="https://github.com/ingridsj" target="_blank">Ingrid Almeida</a> |
+<a href="https://github.com/nurycaroline" target="_blank">Nury</a>
+
+
 
 &#xa0;
 

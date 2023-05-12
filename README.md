@@ -85,7 +85,6 @@ Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para m
 
 
 Feito com :heart: por: 
-
 <a href="https://github.com/luizamarlene" target="_blank">Tuiza</a> |
 <a href="https://github.com/ingridsj" target="_blank">Ingrid Almeida</a> |
 <a href="https://github.com/nurycaroline" target="_blank">Nury</a>

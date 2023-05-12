@@ -54,7 +54,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Recoil](https://recoiljs.org/)
 - [Styled Components](https://styled-components.com/)
-- [React Nativer Modalize](https://jeremybarbet.github.io/react-native-modalize/#/)
+- [React Native Modalize](https://jeremybarbet.github.io/react-native-modalize/#/)
 - [Expo Font](https://docs.expo.dev/versions/latest/sdk/font/)
 
 ## :white_check_mark: Pré requisitos ##
